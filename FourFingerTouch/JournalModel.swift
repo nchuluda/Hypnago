@@ -9,7 +9,11 @@ import SwiftUI
 
 class JournalModel: ObservableObject {
     @Published var currentWeek: [Date] = []
+    @Published var nextWeek : [Date] = []
+    @Published var previousWeek : [Date] = []
+    
     @Published var currentDate: Date = Date()
+    @Published var viewingDate: Date = Date()
     
     @Published var filteredJournals: [Journal]?
     
@@ -26,18 +30,8 @@ class JournalModel: ObservableObject {
     
     init() {
         fetchCurrentWeek()
+        fetchPreviousNextWeek()
         filterTodayJournals()
-        
-//        self.storedJournals = [
-//            Journal(name: "Marketing Campaign", date: Date(), entry: "Nike x McDonalds"),
-//            Journal(name: "Dinner Party Recipes", date: Date(), entry: "Nike x McDonalds"),
-//            Journal(name: "DJ Set", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, entry: "Nike x McDonalds"),
-//            Journal(name: "Halloween Costumes", date: Calendar.current.date(byAdding: .day, value: -1, to: Date())!, entry: "Nike x McDonalds"),
-//            Journal(name: "Theme Song", date: Calendar.current.date(byAdding: .day, value: -1, to: Date())!, entry: "Nike x McDonalds"),
-//            Journal(name: "Fashion Design", date: Calendar.current.date(byAdding: .day, value: 2, to: Date())!, entry: "Nike x McDonalds"),
-//            Journal(name: "Birthday Party Theme", date: Calendar.current.date(byAdding: .day, value: 3, to: Date())!, entry: "Nike x McDonalds"),
-//            Journal(name: "App Development", date: Calendar.current.date(byAdding: .day, value: -2, to: Date())!, entry: "Nike x McDonalds")
-//        ]
     }
     
     func filterTodayJournals() {
@@ -74,18 +68,54 @@ class JournalModel: ObservableObject {
         }
     }
     
+    func fetchPreviousNextWeek(){
+        nextWeek.removeAll()
+        
+        let nextWeekToday = Calendar.current.date(byAdding: .day, value: 7, to: viewingDate )!
+        
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.firstWeekday = 7
+        
+        let startOfWeekNext = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: nextWeekToday))!
+        
+        (1...7).forEach{ day in
+            if let weekday = calendar.date(byAdding: .day, value: day, to: startOfWeekNext){
+                nextWeek.append(weekday)
+            }
+            
+        }
+        
+        previousWeek.removeAll()
+        let previousWeekToday = Calendar.current.date(byAdding: .day, value: -7, to: viewingDate)!
+        
+        let startOfWeekPrev = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: previousWeekToday))!
+        
+        (1...7).forEach{ day in
+            if let weekday = calendar.date(byAdding: .day, value: day, to: startOfWeekPrev){
+                previousWeek.append(weekday)
+            }
+        }
+    }
+    
     func extractDate(date: Date, format: String) -> String {
         let formatter = DateFormatter()
         
         formatter.dateFormat = format
         
         return formatter.string(from: date)
-        
     }
     
     func isToday(date: Date) -> Bool {
         let calendar = Calendar.current
         
         return calendar.isDate(currentDate, inSameDayAs: date)
+    }
+}
+
+extension Date {
+    var month: String {
+        let names = Calendar.current.monthSymbols
+        let month = Calendar.current.component(.month, from: self)
+        return names[month - 1]
     }
 }

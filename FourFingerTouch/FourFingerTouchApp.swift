@@ -11,7 +11,8 @@ import SwiftUI
 struct FourFingerTouchApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            JournalView()
         }
     }
 }
