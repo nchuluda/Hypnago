@@ -38,7 +38,6 @@ struct MultiTouchView: UIViewRepresentable {
     
     class Coordinator: NSObject, MyPanGestureRecognizerDelegate {
         var parent: MultiTouchView
-        
         init(_ parent: MultiTouchView) {
             self.parent = parent
         }

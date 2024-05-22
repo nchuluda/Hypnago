@@ -14,8 +14,23 @@ struct JournalView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             HeaderView()
+            
+            // MONTH
+            Text("\(journalModel.currentDate.month)")
+                .font(.title3.bold())
+            
+            
+            
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 10) {
+                HStack(spacing: 1) {
+                    Button {
+                        print("Previous Week")
+                        journalModel.currentWeek = journalModel.previousWeek
+                        journalModel.viewingDate = Calendar.current.date(byAdding: .day, value: -7, to: journalModel.viewingDate)!
+                        journalModel.fetchPreviousNextWeek()
+                    } label: {
+                        Label("", systemImage: "chevron.left")
+                    }
                     ForEach(journalModel.currentWeek, id: \.self) { day in
                         VStack(spacing: 10) {
                             
@@ -59,6 +74,14 @@ struct JournalView: View {
                                 journalModel.currentDate = day
                             }
                         }
+                    }
+                    Button {
+                        print("Next Week")
+                        journalModel.currentWeek = journalModel.nextWeek
+                        journalModel.viewingDate = Calendar.current.date(byAdding: .day, value: 7, to: journalModel.viewingDate)!
+                        journalModel.fetchPreviousNextWeek()
+                    } label: {
+                        Label("", systemImage: "chevron.right")
                     }
                 }
                 .padding(.horizontal)
