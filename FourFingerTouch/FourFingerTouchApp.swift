@@ -14,10 +14,15 @@ struct FourFingerTouchApp: App {
 
     var body: some Scene {
         WindowGroup {
+<<<<<<< Updated upstream
 //            ContentView()
 //            JournalView()
             ViewNavigator(appManager: appManager)
                 .environment(journalModel)
+=======
+            ContentView(audio: AudioRecorder())
+        //    JournalView()
+>>>>>>> Stashed changes
         }
     }
 }
