@@ -25,6 +25,7 @@ struct ViewNavigator: View {
         case .createEntry:
             CreateEntryView()
                 .environment(appManager)
+                .environment(journalModel)
         case .history:
             JournalView()
                 .environment(appManager)
@@ -35,4 +36,5 @@ struct ViewNavigator: View {
 
 #Preview {
     ViewNavigator(appManager: AppManager.sample)
+        .environment(JournalModel.sample)
 }

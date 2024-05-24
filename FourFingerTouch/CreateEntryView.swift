@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CreateEntryView: View {
     @Environment(AppManager.self) var appManager
+    @Environment(JournalModel.self) var journalModel
     @State var entry: String = ""
     
     var body: some View {
@@ -22,6 +23,12 @@ struct CreateEntryView: View {
                 
                 Button("Submit", action: {
                     appManager.entry = self.entry
+                    if let title = appManager.title,
+                       let entry = appManager.entry {
+                        journalModel.storedJournals.append(Journal(title: title, date: Date(), entry: entry))
+                        appManager.title = nil
+                        appManager.entry = nil
+                    }
                     appManager.appState = .history
                 })
             }
@@ -32,4 +39,5 @@ struct CreateEntryView: View {
 #Preview {
     CreateEntryView()
         .environment(AppManager.sample)
+        .environment(JournalModel.sample)
 }
