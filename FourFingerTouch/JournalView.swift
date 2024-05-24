@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct JournalView: View {
-    @StateObject var journalModel: JournalModel = JournalModel()
+//    @StateObject var journalModel: JournalModel = JournalModel()    
+//    @EnvironmentObject var journalModel: JournalModel
+    @Environment(JournalModel.self) var journalModel
     @Namespace var animation
     
     var body: some View {
@@ -16,7 +18,7 @@ struct JournalView: View {
             HeaderView()
             
             // MONTH
-            Text("\(journalModel.currentDate.month)")
+            Text("\(journalModel.viewingDate.month)")
                 .font(.title3.bold())
             
             
@@ -24,7 +26,6 @@ struct JournalView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 1) {
                     Button {
-                        print("Previous Week")
                         journalModel.currentWeek = journalModel.previousWeek
                         journalModel.viewingDate = Calendar.current.date(byAdding: .day, value: -7, to: journalModel.viewingDate)!
                         journalModel.fetchPreviousNextWeek()
@@ -35,15 +36,12 @@ struct JournalView: View {
                         VStack(spacing: 10) {
                             
                             // dd will return day as 01, 02, 03 ... etc
-                            
                             #warning("Font sizes are not dynamic")
                             Text(journalModel.extractDate(date: day, format: "dd"))
                                 .font(.system(size: 15))
                                 .fontWeight(.semibold)
 //                                .foregroundStyle(.white)
                                
-                                
-                            
                             // EEE will return day as MON, TUE, WED ... etc
                             Text(journalModel.extractDate(date: day, format: "EEE"))
                                 .font(.system(size: 14))
@@ -194,7 +192,7 @@ struct JournalView: View {
         }
         .padding()
         .padding(.top, getSafeArea().top)
-        .background(Color.white)
+        .background(Color("backgroundColor"))
     }
 }
 
@@ -229,4 +227,6 @@ extension View {
 
 #Preview {
     JournalView()
+        .environment(JournalModel.sample)
+        
 }
