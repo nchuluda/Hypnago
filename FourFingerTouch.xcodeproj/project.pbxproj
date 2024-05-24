@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64D75C8A2BFF9BD100829A85 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D75C892BFF9BD100829A85 /* AudioManager.swift */; };
 		D81A683F2BF3997700A0ADA4 /* FourFingerTouchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81A683E2BF3997700A0ADA4 /* FourFingerTouchApp.swift */; };
 		D81A68412BF3997700A0ADA4 /* HypangoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81A68402BF3997700A0ADA4 /* HypangoView.swift */; };
 		D81A68432BF3997800A0ADA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D81A68422BF3997800A0ADA4 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		64D75C892BFF9BD100829A85 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		D81A683B2BF3997700A0ADA4 /* FourFingerTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourFingerTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81A683E2BF3997700A0ADA4 /* FourFingerTouchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourFingerTouchApp.swift; sourceTree = "<group>"; };
 		D81A68402BF3997700A0ADA4 /* HypangoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypangoView.swift; sourceTree = "<group>"; };
@@ -81,6 +83,10 @@
 				D81A68742BFF8A7000A0ADA4 /* Views */,
 				D81A68702BFF79D400A0ADA4 /* AppManager.swift */,
 				D81A68722BFF7A0800A0ADA4 /* AppState.swift */,
+
+				D81A684E2BF3A50C00A0ADA4 /* Shape.swift */,
+				64D75C892BFF9BD100829A85 /* AudioManager.swift */,
+
 				D81A68422BF3997800A0ADA4 /* Assets.xcassets */,
 				D81A68442BF3997800A0ADA4 /* Preview Content */,
 			);
@@ -183,6 +189,10 @@
 				D81A683F2BF3997700A0ADA4 /* FourFingerTouchApp.swift in Sources */,
 				D81A686F2BFF791900A0ADA4 /* ViewNavigator.swift in Sources */,
 				D81A686D2BFEA63000A0ADA4 /* BeginHypnagoView.swift in Sources */,
+
+				64D75C8A2BFF9BD100829A85 /* AudioManager.swift in Sources */,
+				D81A684F2BF3A50C00A0ADA4 /* Shape.swift in Sources */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
