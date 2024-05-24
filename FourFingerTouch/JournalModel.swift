@@ -7,15 +7,16 @@
 
 import SwiftUI
 
-class JournalModel: ObservableObject {
-    @Published var currentWeek: [Date] = []
-    @Published var nextWeek : [Date] = []
-    @Published var previousWeek : [Date] = []
+@Observable
+class JournalModel {
+    var currentWeek: [Date] = []
+    var nextWeek : [Date] = []
+    var previousWeek : [Date] = []
     
-    @Published var currentDate: Date = Date()
-    @Published var viewingDate: Date = Date()
+    var currentDate: Date = Date()
+    var viewingDate: Date = Date()
     
-    @Published var filteredJournals: [Journal]?
+    var filteredJournals: [Journal]?
     
     var storedJournals: [Journal] = [
         Journal(name: "Marketing Campaign", date: Date(), entry: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In metus vulputate eu scelerisque felis imperdiet proin fermentum leo."),
@@ -51,7 +52,6 @@ class JournalModel: ObservableObject {
     }
     
     func fetchCurrentWeek() {
-        
         let today = Date()
         let calendar = Calendar.current
         let week = calendar.dateInterval(of: .weekOfMonth, for: today)
@@ -70,7 +70,6 @@ class JournalModel: ObservableObject {
     
     func fetchPreviousNextWeek(){
         nextWeek.removeAll()
-        
         let nextWeekToday = Calendar.current.date(byAdding: .day, value: 7, to: viewingDate )!
         
         var calendar = Calendar(identifier: .gregorian)
@@ -82,7 +81,6 @@ class JournalModel: ObservableObject {
             if let weekday = calendar.date(byAdding: .day, value: day, to: startOfWeekNext){
                 nextWeek.append(weekday)
             }
-            
         }
         
         previousWeek.removeAll()
@@ -119,3 +117,9 @@ extension Date {
         return names[month - 1]
     }
 }
+
+#if DEBUG
+extension JournalModel {
+    static let sample = JournalModel()
+}
+#endif

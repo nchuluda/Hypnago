@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct HypnagoView: View {
+    @Environment(AppManager.self) var appManager
     @State var locations: [TouchLocation] = []
 //    @State var showTimer: Bool = false
     @State var timerValue = 10
@@ -105,11 +106,14 @@ struct ContentView: View {
             }
         }
         .alert("Wake up and journal!", isPresented: $showingAlert) {
-            Button("OK", role: .cancel) { }
+            Button("OK", role: .cancel) { 
+                appManager.appState = .createEntry
+            }
         }
     }
 }
 
 #Preview {
-    ContentView()
+    HypnagoView()
+        .environment(AppManager.sample)
 }

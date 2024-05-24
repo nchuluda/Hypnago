@@ -9,10 +9,15 @@ import SwiftUI
 
 @main
 struct FourFingerTouchApp: App {
+    @State private var appManager = AppManager()
+    @State var journalModel: JournalModel = JournalModel()
+
     var body: some Scene {
         WindowGroup {
 //            ContentView()
-            JournalView()
+//            JournalView()
+            ViewNavigator(appManager: appManager)
+                .environment(journalModel)
         }
     }
 }
