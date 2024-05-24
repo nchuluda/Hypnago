@@ -70,14 +70,14 @@
 			isa = PBXGroup;
 			children = (
 				D81A683E2BF3997700A0ADA4 /* FourFingerTouchApp.swift */,
+				D81A684C2BF399B300A0ADA4 /* MultiTouchView.swift */,
+				D81A686E2BFF791900A0ADA4 /* ViewNavigator.swift */,
 				D81A685C2BFCFB6C00A0ADA4 /* Journal.swift */,
 				D81A685E2BFCFB8300A0ADA4 /* JournalModel.swift */,
-				D81A684C2BF399B300A0ADA4 /* MultiTouchView.swift */,
+				D81A68602BFCFB9700A0ADA4 /* JournalView.swift */,
 				D81A686C2BFEA63000A0ADA4 /* BeginHypnagoView.swift */,
 				D81A68402BF3997700A0ADA4 /* HypangoView.swift */,
 				D81A68752BFF8B6F00A0ADA4 /* CreateEntryView.swift */,
-				D81A68602BFCFB9700A0ADA4 /* JournalView.swift */,
-				D81A686E2BFF791900A0ADA4 /* ViewNavigator.swift */,
 				D81A68742BFF8A7000A0ADA4 /* Views */,
 				D81A68702BFF79D400A0ADA4 /* AppManager.swift */,
 				D81A68722BFF7A0800A0ADA4 /* AppState.swift */,

@@ -19,14 +19,14 @@ class JournalModel {
     var filteredJournals: [Journal]?
     
     var storedJournals: [Journal] = [
-        Journal(name: "Marketing Campaign", date: Date(), entry: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In metus vulputate eu scelerisque felis imperdiet proin fermentum leo."),
-        Journal(name: "Dinner Party Recipes", date: Date(), entry: "Tristique magna sit amet purus gravida quis blandit. Tincidunt augue interdum velit euismod in pellentesque. Porttitor rhoncus dolor purus non enim praesent elementum facilisis leo."),
-        Journal(name: "DJ Set", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, entry: "Sit amet consectetur adipiscing elit pellentesque habitant morbi tristique. Netus et malesuada fames ac turpis egestas maecenas. Consequat id porta nibh venenatis."),
-        Journal(name: "Halloween Costumes", date: Calendar.current.date(byAdding: .day, value: -1, to: Date())!, entry: "Donec pretium vulputate sapien nec. Quam quisque id diam vel quam elementum. Aliquam faucibus purus in massa tempor nec feugiat nisl."),
-        Journal(name: "Theme Song", date: Calendar.current.date(byAdding: .day, value: -1, to: Date())!, entry: "Ut porttitor leo a diam sollicitudin. Odio ut enim blandit volutpat maecenas volutpat blandit aliquam. Ornare suspendisse sed nisi lacus sed viverra."),
-        Journal(name: "Fashion Design", date: Calendar.current.date(byAdding: .day, value: 2, to: Date())!, entry: "Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Hendrerit gravida rutrum quisque non tellus orci ac. Ultrices dui sapien eget mi proin."),
-        Journal(name: "Birthday Party Theme", date: Calendar.current.date(byAdding: .day, value: 3, to: Date())!, entry: "Lectus nulla at volutpat diam ut venenatis tellus. In hendrerit gravida rutrum quisque non tellus. Non pulvinar neque laoreet suspendisse interdum consectetur."),
-        Journal(name: "App Development", date: Calendar.current.date(byAdding: .day, value: -2, to: Date())!, entry: "Sagittis nisl rhoncus mattis rhoncus urna neque viverra. Diam quam nulla porttitor massa. Eget dolor morbi non arcu risus quis varius quam.")
+        Journal(title: "Marketing Campaign", date: Date(), entry: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In metus vulputate eu scelerisque felis imperdiet proin fermentum leo."),
+        Journal(title: "Dinner Party Recipes", date: Date(), entry: "Tristique magna sit amet purus gravida quis blandit. Tincidunt augue interdum velit euismod in pellentesque. Porttitor rhoncus dolor purus non enim praesent elementum facilisis leo."),
+        Journal(title: "DJ Set", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, entry: "Sit amet consectetur adipiscing elit pellentesque habitant morbi tristique. Netus et malesuada fames ac turpis egestas maecenas. Consequat id porta nibh venenatis."),
+        Journal(title: "Halloween Costumes", date: Calendar.current.date(byAdding: .day, value: -1, to: Date())!, entry: "Donec pretium vulputate sapien nec. Quam quisque id diam vel quam elementum. Aliquam faucibus purus in massa tempor nec feugiat nisl."),
+        Journal(title: "Theme Song", date: Calendar.current.date(byAdding: .day, value: -1, to: Date())!, entry: "Ut porttitor leo a diam sollicitudin. Odio ut enim blandit volutpat maecenas volutpat blandit aliquam. Ornare suspendisse sed nisi lacus sed viverra."),
+        Journal(title: "Fashion Design", date: Calendar.current.date(byAdding: .day, value: 2, to: Date())!, entry: "Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Hendrerit gravida rutrum quisque non tellus orci ac. Ultrices dui sapien eget mi proin."),
+        Journal(title: "Birthday Party Theme", date: Calendar.current.date(byAdding: .day, value: 3, to: Date())!, entry: "Lectus nulla at volutpat diam ut venenatis tellus. In hendrerit gravida rutrum quisque non tellus. Non pulvinar neque laoreet suspendisse interdum consectetur."),
+        Journal(title: "App Development", date: Calendar.current.date(byAdding: .day, value: -2, to: Date())!, entry: "Sagittis nisl rhoncus mattis rhoncus urna neque viverra. Diam quam nulla porttitor massa. Eget dolor morbi non arcu risus quis varius quam.")
     ]
     
     init() {

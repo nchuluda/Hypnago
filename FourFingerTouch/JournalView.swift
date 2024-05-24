@@ -114,6 +114,10 @@ struct JournalView: View {
         .onChange(of: journalModel.currentDate) {
             journalModel.filterTodayJournals()
         }
+        .task {
+            journalModel.filterTodayJournals()
+        }
+        
     }
     
     func JournalCardView(journal: Journal) -> some View {
@@ -138,7 +142,7 @@ struct JournalView: View {
                 HStack(alignment: .top, spacing: 10) {
                     VStack(alignment: .leading, spacing: 12) {
                         HStack {
-                            Text(journal.name)
+                            Text(journal.title)
                                 .font(.title2.bold())
                             Spacer()
                             Text(journal.date.formatted(date: .omitted, time: .shortened))
