@@ -14,79 +14,82 @@ struct JournalView: View {
     @Namespace var animation
     
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            HeaderView()
-            
-            // MONTH
-            Text("\(journalModel.viewingDate.month)")
-                .font(.title3.bold())
-            
-            
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 1) {
-                    Button {
-                        journalModel.currentWeek = journalModel.previousWeek
-                        journalModel.viewingDate = Calendar.current.date(byAdding: .day, value: -7, to: journalModel.viewingDate)!
-                        journalModel.fetchPreviousNextWeek()
-                    } label: {
-                        Label("", systemImage: "chevron.left")
-                    }
-                    ForEach(journalModel.currentWeek, id: \.self) { day in
-                        VStack(spacing: 10) {
-                            
-                            // dd will return day as 01, 02, 03 ... etc
-                            #warning("Font sizes are not dynamic")
-                            Text(journalModel.extractDate(date: day, format: "dd"))
-                                .font(.system(size: 15))
-                                .fontWeight(.semibold)
-//                                .foregroundStyle(.white)
-                               
-                            // EEE will return day as MON, TUE, WED ... etc
-                            Text(journalModel.extractDate(date: day, format: "EEE"))
-                                .font(.system(size: 14))
-//                                .foregroundStyle(.white)
-                            
-                            Circle()
-                                .fill(.white)
-                                .frame(width: 8, height: 8)
-                                .opacity(journalModel.isToday(date: day) ? 1 : 0)
-                            
+        ZStack {
+            ScrollView(.vertical, showsIndicators: false) {
+                HeaderView()
+                
+                // MONTH
+                Text("\(journalModel.viewingDate.month)")
+                    .font(.title3.bold())
+                
+                
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 1) {
+                        Button {
+                            journalModel.currentWeek = journalModel.previousWeek
+                            journalModel.viewingDate = Calendar.current.date(byAdding: .day, value: -7, to: journalModel.viewingDate)!
+                            journalModel.fetchPreviousNextWeek()
+                        } label: {
+                            Label("", systemImage: "chevron.left")
                         }
-                        .foregroundStyle(journalModel.isToday(date: day) ? .primary : .secondary )
-                        .foregroundColor(journalModel.isToday(date: day) ? .white : .black)
-                        .frame(width: 45, height: 90)
-                        .background(
-                            ZStack {
-                                if journalModel.isToday(date: day) {
-                                    Capsule()
-                                        .fill(.black)
-                                        .matchedGeometryEffect(id: "CURRENTDAY", in: animation)
+                        ForEach(journalModel.currentWeek, id: \.self) { day in
+                            VStack(spacing: 10) {
+                                
+                                // dd will return day as 01, 02, 03 ... etc
+                                #warning("Font sizes are not dynamic")
+                                Text(journalModel.extractDate(date: day, format: "dd"))
+                                    .font(.system(size: 15))
+                                    .fontWeight(.semibold)
+    //                                .foregroundStyle(.white)
+                                   
+                                // EEE will return day as MON, TUE, WED ... etc
+                                Text(journalModel.extractDate(date: day, format: "EEE"))
+                                    .font(.system(size: 14))
+    //                                .foregroundStyle(.white)
+                                
+                                Circle()
+                                    .fill(.white)
+                                    .frame(width: 8, height: 8)
+                                    .opacity(journalModel.isToday(date: day) ? 1 : 0)
+                                
+                            }
+                            .foregroundStyle(journalModel.isToday(date: day) ? .primary : .secondary )
+                            .foregroundColor(journalModel.isToday(date: day) ? .white : .black)
+                            .frame(width: 45, height: 90)
+                            .background(
+                                ZStack {
+                                    if journalModel.isToday(date: day) {
+                                        Capsule()
+                                            .fill(.black)
+                                            .matchedGeometryEffect(id: "CURRENTDAY", in: animation)
+                                    }
+                                }
+                            )
+                            .contentShape(Capsule())
+                            .onTapGesture {
+                                // Updating Current Day
+                                withAnimation {
+                                    journalModel.currentDate = day
                                 }
                             }
-                        )
-                        .contentShape(Capsule())
-                        .onTapGesture {
-                            // Updating Current Day
-                            withAnimation {
-                                journalModel.currentDate = day
-                            }
+                        }
+                        Button {
+                            print("Next Week")
+                            journalModel.currentWeek = journalModel.nextWeek
+                            journalModel.viewingDate = Calendar.current.date(byAdding: .day, value: 7, to: journalModel.viewingDate)!
+                            journalModel.fetchPreviousNextWeek()
+                        } label: {
+                            Label("", systemImage: "chevron.right")
                         }
                     }
-                    Button {
-                        print("Next Week")
-                        journalModel.currentWeek = journalModel.nextWeek
-                        journalModel.viewingDate = Calendar.current.date(byAdding: .day, value: 7, to: journalModel.viewingDate)!
-                        journalModel.fetchPreviousNextWeek()
-                    } label: {
-                        Label("", systemImage: "chevron.right")
-                    }
+                    .padding(.horizontal)
                 }
-                .padding(.horizontal)
+                JournalsView()
             }
-            JournalsView()
+            .ignoresSafeArea(.container, edges: .top)
+//            BeginHypnagoView()
         }
-        .ignoresSafeArea(.container, edges: .top)
     }
     
     func JournalsView() -> some View {
@@ -118,6 +121,20 @@ struct JournalView: View {
             journalModel.filterTodayJournals()
         }
         
+    }
+    
+    func NewHypnagoButton() -> some View {
+        Button {
+            
+        } label: {
+            Image(systemName: "plus")
+                .resizable(resizingMode: .stretch)
+                .font(.largeTitle)
+                .frame(width: 65, height: 65)
+                .background(Color.white)
+                .clipShape(Circle())
+                .foregroundColor(Color.purple)
+        }
     }
     
     func JournalCardView(journal: Journal) -> some View {
