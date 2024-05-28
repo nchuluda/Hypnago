@@ -139,7 +139,4 @@ var body: some View {
 #Preview {
     HypnagoView(audio: AudioRecorder())
         .environment(AppManager.sample)
-=======
-ContentView(audio: AudioRecorder())
->>>>>>> Stashed changes:FourFingerTouch/ContentView.swift
 }
