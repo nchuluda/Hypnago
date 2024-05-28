@@ -137,10 +137,6 @@ var body: some View {
 }
 
 #Preview {
-<<<<<<< Updated upstream:FourFingerTouch/HypangoView.swift
-    HypnagoView()
+    HypnagoView(audio: AudioRecorder())
         .environment(AppManager.sample)
-=======
-ContentView(audio: AudioRecorder())
->>>>>>> Stashed changes:FourFingerTouch/ContentView.swift
 }
