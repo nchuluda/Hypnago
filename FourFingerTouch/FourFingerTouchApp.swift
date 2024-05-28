@@ -15,6 +15,7 @@ struct FourFingerTouchApp: App {
 
     var body: some Scene {
         WindowGroup {
+<<<<<<< Updated upstream
 //            ContentView()
 //            JournalView()
             ViewNavigator(appManager: appManager)
