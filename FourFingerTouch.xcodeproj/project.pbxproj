@@ -72,22 +72,17 @@
 			isa = PBXGroup;
 			children = (
 				D81A683E2BF3997700A0ADA4 /* FourFingerTouchApp.swift */,
+				D81A684C2BF399B300A0ADA4 /* MultiTouchView.swift */,
+				D81A686E2BFF791900A0ADA4 /* ViewNavigator.swift */,
 				D81A685C2BFCFB6C00A0ADA4 /* Journal.swift */,
 				D81A685E2BFCFB8300A0ADA4 /* JournalModel.swift */,
-				D81A684C2BF399B300A0ADA4 /* MultiTouchView.swift */,
+				D81A68602BFCFB9700A0ADA4 /* JournalView.swift */,
 				D81A686C2BFEA63000A0ADA4 /* BeginHypnagoView.swift */,
 				D81A68402BF3997700A0ADA4 /* HypangoView.swift */,
 				D81A68752BFF8B6F00A0ADA4 /* CreateEntryView.swift */,
-				D81A68602BFCFB9700A0ADA4 /* JournalView.swift */,
-
-				D81A686E2BFF791900A0ADA4 /* ViewNavigator.swift */,
-				D81A68742BFF8A7000A0ADA4 /* Views */,
 				D81A68702BFF79D400A0ADA4 /* AppManager.swift */,
 				D81A68722BFF7A0800A0ADA4 /* AppState.swift */,
-
-				D81A684E2BF3A50C00A0ADA4 /* Shape.swift */,
 				64D75C892BFF9BD100829A85 /* AudioManager.swift */,
-
 				D81A68422BF3997800A0ADA4 /* Assets.xcassets */,
 				D81A68442BF3997800A0ADA4 /* Preview Content */,
 			);
@@ -100,13 +95,6 @@
 				D81A68452BF3997800A0ADA4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		D81A68742BFF8A7000A0ADA4 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,13 +176,9 @@
 				D81A68612BFCFB9700A0ADA4 /* JournalView.swift in Sources */,
 				D81A68732BFF7A0800A0ADA4 /* AppState.swift in Sources */,
 				D81A683F2BF3997700A0ADA4 /* FourFingerTouchApp.swift in Sources */,
-
 				D81A686F2BFF791900A0ADA4 /* ViewNavigator.swift in Sources */,
 				D81A686D2BFEA63000A0ADA4 /* BeginHypnagoView.swift in Sources */,
-
 				64D75C8A2BFF9BD100829A85 /* AudioManager.swift in Sources */,
-				D81A684F2BF3A50C00A0ADA4 /* Shape.swift in Sources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

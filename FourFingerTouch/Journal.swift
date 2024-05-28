@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Journal: Identifiable {
+struct Journal: Identifiable, Equatable {
     var id = UUID()
-    var name: String
+    var title: String
     var date: Date
     var entry: String
 }
