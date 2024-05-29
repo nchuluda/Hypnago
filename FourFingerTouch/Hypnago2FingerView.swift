@@ -1,13 +1,13 @@
 //
-//  ContentView.swift
+//  Hypnago2FingerView.swift
 //  FourFingerTouch
 //
-//  Created by Nathan on 5/14/24.
+//  Created by Nathan on 5/29/24.
 //
 
 import SwiftUI
 
-struct HypnagoView: View {
+struct Hypnago2FingerView: View {
     @Environment(AppManager.self) var appManager
     @State var locations: [TouchLocation] = []
 //    @State var showTimer: Bool = false
@@ -18,25 +18,7 @@ struct HypnagoView: View {
     @State var showingAlert = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
-    
-    
-//    var timerValue: Int = 10 {
-//        
-//        willSet {
-////            timerValue // old
-////            newValue
-//            // PAUSE TIMER
-//        }
-//
-//        didSet {
-////            oldValue
-////            timerValue // new
-//        }
-//        
-//    }
-    
     var body: some View {
-        
         ZStack {
             backgroundColor
                 .ignoresSafeArea()
@@ -45,7 +27,7 @@ struct HypnagoView: View {
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 
                 if timerInitialized {
-                    if locations.count < 4 {
+                    if locations.count < 2 {
                         Text("Timer: \(timerValue)")
                             .onReceive(timer) { _ in
                                 if timerValue > 0 {
@@ -59,7 +41,7 @@ struct HypnagoView: View {
                     }
                 }
             }
-            
+
             ForEach(locations, id: \.self) { location in
                 Circle()
                     .stroke(lineWidth: 4.0)
@@ -67,7 +49,7 @@ struct HypnagoView: View {
                     .frame(width: 80, height: 80)
                     .position(x: location.point.x, y: location.point.y)
             }
-            
+
             MultiTouchView(locations: $locations)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             
@@ -96,10 +78,11 @@ struct HypnagoView: View {
                 showingAlert = true
                 self.timerExpired = true
                 backgroundColor = Color.red
+                
             }
         }
         .alert("Wake up and journal!", isPresented: $showingAlert) {
-            Button("OK", role: .cancel) { 
+            Button("OK", role: .cancel) {
                 appManager.appState = .createEntry
             }
         }
@@ -107,6 +90,6 @@ struct HypnagoView: View {
 }
 
 #Preview {
-    HypnagoView()
+    Hypnago2FingerView()
         .environment(AppManager.sample)
 }

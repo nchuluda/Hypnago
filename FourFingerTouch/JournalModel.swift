@@ -29,6 +29,10 @@ class JournalModel {
         Journal(title: "App Development", date: Calendar.current.date(byAdding: .day, value: -2, to: Date())!, entry: "Sagittis nisl rhoncus mattis rhoncus urna neque viverra. Diam quam nulla porttitor massa. Eget dolor morbi non arcu risus quis varius quam.")
     ]
     
+    var completedSessions: Int {
+        storedJournals.count
+    }
+    
     init() {
         fetchCurrentWeek()
         fetchPreviousNextWeek()
@@ -49,6 +53,16 @@ class JournalModel {
                 }
             }
         }
+    }
+    
+    func dayHasEntries(day: Date) -> Bool {
+            let calendar = Calendar.current
+            
+            let filtered = self.storedJournals.filter {
+                calendar.isDate($0.date, inSameDayAs: day)
+            }
+            
+            return filtered.isEmpty ? false : true
     }
     
     func fetchCurrentWeek() {
@@ -118,8 +132,8 @@ extension Date {
     }
 }
 
-#if DEBUG
+//#if DEBUG
 extension JournalModel {
     static let sample = JournalModel()
 }
-#endif
+//#endif
