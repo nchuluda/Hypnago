@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AAC50B62C07554100FD70C3 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC50B52C07554100FD70C3 /* GradientView.swift */; };
 		64D75C8A2BFF9BD100829A85 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D75C892BFF9BD100829A85 /* AudioManager.swift */; };
 		D81A683F2BF3997700A0ADA4 /* FourFingerTouchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81A683E2BF3997700A0ADA4 /* FourFingerTouchApp.swift */; };
 		D81A68412BF3997700A0ADA4 /* HypangoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81A68402BF3997700A0ADA4 /* HypangoView.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1AAC50B52C07554100FD70C3 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		64D75C892BFF9BD100829A85 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		D81A683B2BF3997700A0ADA4 /* FourFingerTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourFingerTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81A683E2BF3997700A0ADA4 /* FourFingerTouchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourFingerTouchApp.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			children = (
 				D81A683E2BF3997700A0ADA4 /* FourFingerTouchApp.swift */,
 				D81A684C2BF399B300A0ADA4 /* MultiTouchView.swift */,
+				1AAC50B52C07554100FD70C3 /* GradientView.swift */,
 				D81A686E2BFF791900A0ADA4 /* ViewNavigator.swift */,
 				D81A685C2BFCFB6C00A0ADA4 /* Journal.swift */,
 				D81A685E2BFCFB8300A0ADA4 /* JournalModel.swift */,
@@ -177,6 +180,7 @@
 				D81A68732BFF7A0800A0ADA4 /* AppState.swift in Sources */,
 				D81A683F2BF3997700A0ADA4 /* FourFingerTouchApp.swift in Sources */,
 				D81A686F2BFF791900A0ADA4 /* ViewNavigator.swift in Sources */,
+				1AAC50B62C07554100FD70C3 /* GradientView.swift in Sources */,
 				D81A686D2BFEA63000A0ADA4 /* BeginHypnagoView.swift in Sources */,
 				64D75C8A2BFF9BD100829A85 /* AudioManager.swift in Sources */,
 			);
