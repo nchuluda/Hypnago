@@ -95,6 +95,6 @@ struct Hypnago4FingerView: View {
 }
 
 #Preview {
-    HypnagoView()
+    Hypnago4FingerView()
         .environment(AppManager.sample)
 }

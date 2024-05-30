@@ -25,7 +25,9 @@
 		D8F8E0742C08B16F00FD8EBE /* ViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E0732C08B16F00FD8EBE /* ViewNavigator.swift */; };
 		D8F8E0762C08B17B00FD8EBE /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E0752C08B17A00FD8EBE /* JournalView.swift */; };
 		D8F8E0782C08B18B00FD8EBE /* CreateEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E0772C08B18A00FD8EBE /* CreateEntryView.swift */; };
-		D8F8E07A2C08B19500FD8EBE /* HypangoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E0792C08B19500FD8EBE /* HypangoView.swift */; };
+		D8F8E07A2C08B19500FD8EBE /* Hypango4FingerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E0792C08B19500FD8EBE /* Hypango4FingerView.swift */; };
+		D8F8E07D2C08C6EC00FD8EBE /* OnboardingPagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E07B2C08C6EC00FD8EBE /* OnboardingPagesView.swift */; };
+		D8F8E07E2C08C6EC00FD8EBE /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E07C2C08C6EC00FD8EBE /* OnboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +50,9 @@
 		D8F8E0732C08B16F00FD8EBE /* ViewNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewNavigator.swift; sourceTree = "<group>"; };
 		D8F8E0752C08B17A00FD8EBE /* JournalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
 		D8F8E0772C08B18A00FD8EBE /* CreateEntryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEntryView.swift; sourceTree = "<group>"; };
-		D8F8E0792C08B19500FD8EBE /* HypangoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HypangoView.swift; sourceTree = "<group>"; };
+		D8F8E0792C08B19500FD8EBE /* Hypango4FingerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hypango4FingerView.swift; sourceTree = "<group>"; };
+		D8F8E07B2C08C6EC00FD8EBE /* OnboardingPagesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPagesView.swift; sourceTree = "<group>"; };
+		D8F8E07C2C08C6EC00FD8EBE /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,8 @@
 				D8F8E0672C08A76A00FD8EBE /* Views */,
 				1AAC50B52C07554100FD70C3 /* GradientView.swift */,
 				64D75C892BFF9BD100829A85 /* AudioManager.swift */,
+				D8F8E07B2C08C6EC00FD8EBE /* OnboardingPagesView.swift */,
+				D8F8E07C2C08C6EC00FD8EBE /* OnboardingView.swift */,
 				D81A68772C060BD100A0ADA4 /* Sherbert.swift */,
 				D81A68422BF3997800A0ADA4 /* Assets.xcassets */,
 				D81A68442BF3997800A0ADA4 /* Preview Content */,
@@ -105,13 +111,13 @@
 		D8F8E0672C08A76A00FD8EBE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D8F8E0792C08B19500FD8EBE /* HypangoView.swift */,
 				D8F8E0732C08B16F00FD8EBE /* ViewNavigator.swift */,
+				D8F8E0622C075C8200FD8EBE /* Hypnago1FingerView.swift */,
+				D8F8E0602C075B6400FD8EBE /* Hypnago2FingerView.swift */,
+				D8F8E0792C08B19500FD8EBE /* Hypango4FingerView.swift */,
 				D8F8E0772C08B18A00FD8EBE /* CreateEntryView.swift */,
 				D8F8E0752C08B17A00FD8EBE /* JournalView.swift */,
 				D8F8E0712C08B16100FD8EBE /* BeginHypnagoView.swift */,
-				D8F8E0602C075B6400FD8EBE /* Hypnago2FingerView.swift */,
-				D8F8E0622C075C8200FD8EBE /* Hypnago1FingerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -119,11 +125,11 @@
 		D8F8E0682C08A79800FD8EBE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D8F8E0642C07776B00FD8EBE /* Journal.swift */,
 				D8F8E06B2C08B13500FD8EBE /* AppState.swift */,
+				D8F8E0692C08B12300FD8EBE /* AppManager.swift */,
+				D8F8E0642C07776B00FD8EBE /* Journal.swift */,
 				D8F8E06D2C08B14200FD8EBE /* Entry.swift */,
 				D8F8E06F2C08B14E00FD8EBE /* JournalModel.swift */,
-				D8F8E0692C08B12300FD8EBE /* AppManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -198,8 +204,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8F8E07D2C08C6EC00FD8EBE /* OnboardingPagesView.swift in Sources */,
 				D8F8E0702C08B14E00FD8EBE /* JournalModel.swift in Sources */,
-				D8F8E07A2C08B19500FD8EBE /* HypangoView.swift in Sources */,
+				D8F8E07A2C08B19500FD8EBE /* Hypango4FingerView.swift in Sources */,
 				D8F8E06E2C08B14200FD8EBE /* Entry.swift in Sources */,
 				D8F8E0652C07776B00FD8EBE /* Journal.swift in Sources */,
 				D8F8E0632C075C8200FD8EBE /* Hypnago1FingerView.swift in Sources */,
@@ -208,6 +215,7 @@
 				D8F8E0722C08B16200FD8EBE /* BeginHypnagoView.swift in Sources */,
 				D8F8E0762C08B17B00FD8EBE /* JournalView.swift in Sources */,
 				D81A683F2BF3997700A0ADA4 /* FourFingerTouchApp.swift in Sources */,
+				D8F8E07E2C08C6EC00FD8EBE /* OnboardingView.swift in Sources */,
 				D8F8E0612C075B6400FD8EBE /* Hypnago2FingerView.swift in Sources */,
 				D8F8E06A2C08B12300FD8EBE /* AppManager.swift in Sources */,
 				D8F8E0782C08B18B00FD8EBE /* CreateEntryView.swift in Sources */,
