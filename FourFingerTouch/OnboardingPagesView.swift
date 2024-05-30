@@ -44,6 +44,7 @@ struct PageTwo: View {
     }}
 
 struct PageThree: View {
+//    @AppStorage("startOnBoarding") var startOnBoarding = true
     @Environment(AppManager.self) var appManager
     @AppStorage("onBoarding") private var startOnBoarding = true
     var body: some View {
@@ -51,7 +52,6 @@ struct PageThree: View {
             Color.onboardingBackground
                 .ignoresSafeArea()
             VStack {
-                
                 Text(" What you’ll do ")
                     .font(.system(.largeTitle, design: .serif))
                     .bold()
@@ -66,6 +66,8 @@ struct PageThree: View {
                 Button("Continue") {
                     startOnBoarding = false
                     appManager.appState = .setup
+                    
+                    
                 }
                 .font(.largeTitle)
                 .padding(70)
