@@ -19,30 +19,21 @@ struct JournalView: View {
         
         ZStack {
             VStack {
-//            ScrollView(.vertical, showsIndicators: false) {
-//                HeaderView()
                 
-                // MONTH
+                // MONTH HEADER
                 HStack {
                     Text("\(journalModel.viewingDate.month)")
                         .font(.title.bold())
                     .padding(.top, getSafeArea().top)
-
                 }
-                
-                
-                
-                ScrollView(.horizontal, showsIndicators: false) {
+
+                // CALENDAR
                     HStack(spacing: 1) {
                         Button {
-                            journalModel.currentWeek = journalModel.previousWeek
-                            journalModel.viewingDate = Calendar.current.date(byAdding: .day, value: -7, to: journalModel.viewingDate)!
-                            journalModel.fetchPreviousNextWeek()
+                            journalModel.switchToPreviousWeek()
                         } label: {
                             Label("", systemImage: "chevron.left")
                         }
-                        
-                        
                         
                         ForEach(journalModel.currentWeek, id: \.self) { day in
                             VStack(spacing: 10) {
@@ -71,8 +62,6 @@ struct JournalView: View {
                                         .frame(width: 8, height: 8)
                                     .opacity(journalModel.isToday(date: day) ? 1 : 0)
                                 }
-                                
-                                
                             }
                             .foregroundStyle(journalModel.isToday(date: day) ? .primary : .secondary )
                             .foregroundColor(journalModel.isToday(date: day) ? .white : .black)
@@ -95,17 +84,15 @@ struct JournalView: View {
                             }
                         }
                         Button {
-                            journalModel.currentWeek = journalModel.nextWeek
-                            journalModel.viewingDate = Calendar.current.date(byAdding: .day, value: 7, to: journalModel.viewingDate)!
-                            journalModel.fetchPreviousNextWeek()
+                            journalModel.switchToNextWeek()
+
                         } label: {
                             Label("", systemImage: "chevron.right")
                         }
                     }
                     .padding(.horizontal)
-                }
-                
-                StreakView(width: geo.size.width * 0.9)
+
+                SessionsCompletedView(width: geo.size.width * 0.9)
                                 
                 ScrollView(.vertical, showsIndicators: false) {
                     
@@ -132,10 +119,6 @@ struct JournalView: View {
                         JournalCardView(journal: journal)
                     }
                 }
-                
-            } else {
-                // MARK: Progress View
-                // ProgressView()
             }
         }
         
@@ -146,11 +129,9 @@ struct JournalView: View {
         .task {
             journalModel.filterTodayJournals()
         }
-        
     }
     
-    func JournalCardView(journal: Journal) -> some View {
-         
+    func JournalCardView(journal: Entry) -> some View {
         HStack {
             VStack {
                 HStack(alignment: .top, spacing: 10) {
@@ -161,14 +142,9 @@ struct JournalView: View {
                             Spacer()
                             Text(journal.date.formatted(date: .omitted, time: .shortened))
                         }
-                        
                         Text(journal.entry)
                             .font(.callout)
                             .foregroundStyle(.secondary)
-                    }
-                    
-                    HStack(spacing: 0) {
-                        
                     }
                 }
             }
@@ -208,7 +184,7 @@ struct JournalView: View {
         }
     }
     
-    func StreakView(width: CGFloat) -> some View {
+    func SessionsCompletedView(width: CGFloat) -> some View {
             ZStack {
                 RoundedRectangle(cornerRadius: 25.0)
                     .fill(.white)
@@ -236,14 +212,11 @@ struct JournalView: View {
     //                    Image(systemName: "square.and.pencil")
                         NewEntryButton()
                             .padding(.leading)
-                        
-                        
                     }
                 }
             }
             .frame(width: width, height: 100)
             .padding(.top)
-        
     }
 }
 

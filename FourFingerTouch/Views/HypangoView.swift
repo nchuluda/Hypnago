@@ -18,25 +18,7 @@ struct HypnagoView: View {
     @State var showingAlert = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
-    
-    
-//    var timerValue: Int = 10 {
-//        
-//        willSet {
-////            timerValue // old
-////            newValue
-//            // PAUSE TIMER
-//        }
-//
-//        didSet {
-////            oldValue
-////            timerValue // new
-//        }
-//        
-//    }
-    
     var body: some View {
-        
         ZStack {
             backgroundColor
                 .ignoresSafeArea()

@@ -25,12 +25,13 @@ struct CreateEntryView: View {
                     appManager.entry = self.entry
                     if let title = appManager.title,
                        let entry = appManager.entry {
-                        journalModel.storedJournals.append(Journal(title: title, date: Date(), entry: entry))
+                        journalModel.storedJournals.append(Entry(title: title, date: Date(), entry: entry))
                         appManager.title = nil
                         appManager.entry = nil
                     }
                     appManager.appState = .history
                 })
+                .disabled(self.entry.isEmpty)
             }
         }
     }
