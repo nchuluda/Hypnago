@@ -9,12 +9,14 @@ import SwiftUI
 
 struct OnboardingView: View {
     
-    @AppStorage("onBoarding") private var startOnBoarding = true
+//    @AppStorage("onBoarding") private var startOnBoarding = true
+    @Environment(AppManager.self) var appManager
+    
       @State private var currentPage = 0
-      private let totalPages = 3
+//      private let totalPages = 3
     var body: some View {
         
-        if startOnBoarding {
+//        if startOnBoarding {
             ZStack{
                 VStack {
                     TabView(selection: $currentPage) {
@@ -23,8 +25,9 @@ struct OnboardingView: View {
                             .tag(0)
                         PageTwo()
                             .tag(1)
+                        PageThree()
                         
-                        PageThree(startOnBoarding: $startOnBoarding)
+                            .environment(appManager)
                             .tag(2)
                     }
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
@@ -32,11 +35,7 @@ struct OnboardingView: View {
                     .padding()
                 }
             }
-        }
-        else {
-            BeginHypnagoView()
-        }
-        
+//        }
     }}
 
 #Preview {

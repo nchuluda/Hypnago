@@ -44,15 +44,13 @@ struct PageTwo: View {
     }}
 
 struct PageThree: View {
-    
-    @Binding var startOnBoarding: Bool
-    
+//    @AppStorage("startOnBoarding") var startOnBoarding = true
+    @Environment(AppManager.self) var appManager
     var body: some View {
         ZStack {
             Color.colorOnboardingBackground
                 .ignoresSafeArea()
             VStack {
-                
                 Text(" What you’ll do ")
                     .font(.system(.largeTitle, design: .serif))
                     .bold()
@@ -67,7 +65,10 @@ struct PageThree: View {
                 Button("Continue") {
 //                    startOnBoarding.toggle()
 //                    print("ok")
+//                     startOnBoarding = false
+                    UserDefaults.standard.setValue(false, forKey: "startOnBoarding")
                     appManager.appState = .setup
+                    
                     
                 }
                 .font(.largeTitle)
