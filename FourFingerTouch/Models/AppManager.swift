@@ -14,8 +14,8 @@ final class AppManager {
     var entry: String?
 }
 
-#if DEBUG
+//#if DEBUG
 extension AppManager {
     static let sample = AppManager()
 }
-#endif
+//#endif

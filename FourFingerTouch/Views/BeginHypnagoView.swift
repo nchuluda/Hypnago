@@ -24,6 +24,7 @@ struct BeginHypnagoView: View {
                     appManager.title = self.title
                     appManager.appState = .hypnagoSession
                 })
+                .disabled(self.title.isEmpty)
             }
         }
     }

@@ -10,18 +10,22 @@
 		1AAC50B62C07554100FD70C3 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC50B52C07554100FD70C3 /* GradientView.swift */; };
 		64D75C8A2BFF9BD100829A85 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D75C892BFF9BD100829A85 /* AudioManager.swift */; };
 		D81A683F2BF3997700A0ADA4 /* FourFingerTouchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81A683E2BF3997700A0ADA4 /* FourFingerTouchApp.swift */; };
-		D81A68412BF3997700A0ADA4 /* HypangoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81A68402BF3997700A0ADA4 /* HypangoView.swift */; };
 		D81A68432BF3997800A0ADA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D81A68422BF3997800A0ADA4 /* Assets.xcassets */; };
 		D81A68462BF3997800A0ADA4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D81A68452BF3997800A0ADA4 /* Preview Assets.xcassets */; };
 		D81A684D2BF399B300A0ADA4 /* MultiTouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81A684C2BF399B300A0ADA4 /* MultiTouchView.swift */; };
-		D81A685D2BFCFB6C00A0ADA4 /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81A685C2BFCFB6C00A0ADA4 /* Journal.swift */; };
-		D81A685F2BFCFB8300A0ADA4 /* JournalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81A685E2BFCFB8300A0ADA4 /* JournalModel.swift */; };
-		D81A68612BFCFB9700A0ADA4 /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81A68602BFCFB9700A0ADA4 /* JournalView.swift */; };
-		D81A686D2BFEA63000A0ADA4 /* BeginHypnagoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81A686C2BFEA63000A0ADA4 /* BeginHypnagoView.swift */; };
-		D81A686F2BFF791900A0ADA4 /* ViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81A686E2BFF791900A0ADA4 /* ViewNavigator.swift */; };
-		D81A68712BFF79D400A0ADA4 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81A68702BFF79D400A0ADA4 /* AppManager.swift */; };
-		D81A68732BFF7A0800A0ADA4 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81A68722BFF7A0800A0ADA4 /* AppState.swift */; };
-		D81A68762BFF8B6F00A0ADA4 /* CreateEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81A68752BFF8B6F00A0ADA4 /* CreateEntryView.swift */; };
+		D81A68782C060BD100A0ADA4 /* Sherbert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81A68772C060BD100A0ADA4 /* Sherbert.swift */; };
+		D8F8E0612C075B6400FD8EBE /* Hypnago2FingerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E0602C075B6400FD8EBE /* Hypnago2FingerView.swift */; };
+		D8F8E0632C075C8200FD8EBE /* Hypnago1FingerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E0622C075C8200FD8EBE /* Hypnago1FingerView.swift */; };
+		D8F8E0652C07776B00FD8EBE /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E0642C07776B00FD8EBE /* Journal.swift */; };
+		D8F8E06A2C08B12300FD8EBE /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E0692C08B12300FD8EBE /* AppManager.swift */; };
+		D8F8E06C2C08B13500FD8EBE /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E06B2C08B13500FD8EBE /* AppState.swift */; };
+		D8F8E06E2C08B14200FD8EBE /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E06D2C08B14200FD8EBE /* Entry.swift */; };
+		D8F8E0702C08B14E00FD8EBE /* JournalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E06F2C08B14E00FD8EBE /* JournalModel.swift */; };
+		D8F8E0722C08B16200FD8EBE /* BeginHypnagoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E0712C08B16100FD8EBE /* BeginHypnagoView.swift */; };
+		D8F8E0742C08B16F00FD8EBE /* ViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E0732C08B16F00FD8EBE /* ViewNavigator.swift */; };
+		D8F8E0762C08B17B00FD8EBE /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E0752C08B17A00FD8EBE /* JournalView.swift */; };
+		D8F8E0782C08B18B00FD8EBE /* CreateEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E0772C08B18A00FD8EBE /* CreateEntryView.swift */; };
+		D8F8E07A2C08B19500FD8EBE /* HypangoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E0792C08B19500FD8EBE /* HypangoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,18 +33,22 @@
 		64D75C892BFF9BD100829A85 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		D81A683B2BF3997700A0ADA4 /* FourFingerTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourFingerTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81A683E2BF3997700A0ADA4 /* FourFingerTouchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourFingerTouchApp.swift; sourceTree = "<group>"; };
-		D81A68402BF3997700A0ADA4 /* HypangoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypangoView.swift; sourceTree = "<group>"; };
 		D81A68422BF3997800A0ADA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D81A68452BF3997800A0ADA4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D81A684C2BF399B300A0ADA4 /* MultiTouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiTouchView.swift; sourceTree = "<group>"; };
-		D81A685C2BFCFB6C00A0ADA4 /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
-		D81A685E2BFCFB8300A0ADA4 /* JournalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalModel.swift; sourceTree = "<group>"; };
-		D81A68602BFCFB9700A0ADA4 /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
-		D81A686C2BFEA63000A0ADA4 /* BeginHypnagoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginHypnagoView.swift; sourceTree = "<group>"; };
-		D81A686E2BFF791900A0ADA4 /* ViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewNavigator.swift; sourceTree = "<group>"; };
-		D81A68702BFF79D400A0ADA4 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
-		D81A68722BFF7A0800A0ADA4 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		D81A68752BFF8B6F00A0ADA4 /* CreateEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEntryView.swift; sourceTree = "<group>"; };
+		D81A68772C060BD100A0ADA4 /* Sherbert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sherbert.swift; sourceTree = "<group>"; };
+		D8F8E0602C075B6400FD8EBE /* Hypnago2FingerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hypnago2FingerView.swift; sourceTree = "<group>"; };
+		D8F8E0622C075C8200FD8EBE /* Hypnago1FingerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hypnago1FingerView.swift; sourceTree = "<group>"; };
+		D8F8E0642C07776B00FD8EBE /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
+		D8F8E0692C08B12300FD8EBE /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		D8F8E06B2C08B13500FD8EBE /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		D8F8E06D2C08B14200FD8EBE /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		D8F8E06F2C08B14E00FD8EBE /* JournalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalModel.swift; sourceTree = "<group>"; };
+		D8F8E0712C08B16100FD8EBE /* BeginHypnagoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeginHypnagoView.swift; sourceTree = "<group>"; };
+		D8F8E0732C08B16F00FD8EBE /* ViewNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewNavigator.swift; sourceTree = "<group>"; };
+		D8F8E0752C08B17A00FD8EBE /* JournalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
+		D8F8E0772C08B18A00FD8EBE /* CreateEntryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEntryView.swift; sourceTree = "<group>"; };
+		D8F8E0792C08B19500FD8EBE /* HypangoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HypangoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,17 +83,11 @@
 			children = (
 				D81A683E2BF3997700A0ADA4 /* FourFingerTouchApp.swift */,
 				D81A684C2BF399B300A0ADA4 /* MultiTouchView.swift */,
+				D8F8E0682C08A79800FD8EBE /* Models */,
+				D8F8E0672C08A76A00FD8EBE /* Views */,
 				1AAC50B52C07554100FD70C3 /* GradientView.swift */,
-				D81A686E2BFF791900A0ADA4 /* ViewNavigator.swift */,
-				D81A685C2BFCFB6C00A0ADA4 /* Journal.swift */,
-				D81A685E2BFCFB8300A0ADA4 /* JournalModel.swift */,
-				D81A68602BFCFB9700A0ADA4 /* JournalView.swift */,
-				D81A686C2BFEA63000A0ADA4 /* BeginHypnagoView.swift */,
-				D81A68402BF3997700A0ADA4 /* HypangoView.swift */,
-				D81A68752BFF8B6F00A0ADA4 /* CreateEntryView.swift */,
-				D81A68702BFF79D400A0ADA4 /* AppManager.swift */,
-				D81A68722BFF7A0800A0ADA4 /* AppState.swift */,
 				64D75C892BFF9BD100829A85 /* AudioManager.swift */,
+				D81A68772C060BD100A0ADA4 /* Sherbert.swift */,
 				D81A68422BF3997800A0ADA4 /* Assets.xcassets */,
 				D81A68442BF3997800A0ADA4 /* Preview Content */,
 			);
@@ -98,6 +100,32 @@
 				D81A68452BF3997800A0ADA4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D8F8E0672C08A76A00FD8EBE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D8F8E0792C08B19500FD8EBE /* HypangoView.swift */,
+				D8F8E0732C08B16F00FD8EBE /* ViewNavigator.swift */,
+				D8F8E0772C08B18A00FD8EBE /* CreateEntryView.swift */,
+				D8F8E0752C08B17A00FD8EBE /* JournalView.swift */,
+				D8F8E0712C08B16100FD8EBE /* BeginHypnagoView.swift */,
+				D8F8E0602C075B6400FD8EBE /* Hypnago2FingerView.swift */,
+				D8F8E0622C075C8200FD8EBE /* Hypnago1FingerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D8F8E0682C08A79800FD8EBE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D8F8E0642C07776B00FD8EBE /* Journal.swift */,
+				D8F8E06B2C08B13500FD8EBE /* AppState.swift */,
+				D8F8E06D2C08B14200FD8EBE /* Entry.swift */,
+				D8F8E06F2C08B14E00FD8EBE /* JournalModel.swift */,
+				D8F8E0692C08B12300FD8EBE /* AppManager.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,18 +198,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D81A68762BFF8B6F00A0ADA4 /* CreateEntryView.swift in Sources */,
-				D81A68412BF3997700A0ADA4 /* HypangoView.swift in Sources */,
-				D81A68712BFF79D400A0ADA4 /* AppManager.swift in Sources */,
-				D81A685D2BFCFB6C00A0ADA4 /* Journal.swift in Sources */,
+				D8F8E0702C08B14E00FD8EBE /* JournalModel.swift in Sources */,
+				D8F8E07A2C08B19500FD8EBE /* HypangoView.swift in Sources */,
+				D8F8E06E2C08B14200FD8EBE /* Entry.swift in Sources */,
+				D8F8E0652C07776B00FD8EBE /* Journal.swift in Sources */,
+				D8F8E0632C075C8200FD8EBE /* Hypnago1FingerView.swift in Sources */,
 				D81A684D2BF399B300A0ADA4 /* MultiTouchView.swift in Sources */,
-				D81A685F2BFCFB8300A0ADA4 /* JournalModel.swift in Sources */,
-				D81A68612BFCFB9700A0ADA4 /* JournalView.swift in Sources */,
-				D81A68732BFF7A0800A0ADA4 /* AppState.swift in Sources */,
+				D8F8E06C2C08B13500FD8EBE /* AppState.swift in Sources */,
+				D8F8E0722C08B16200FD8EBE /* BeginHypnagoView.swift in Sources */,
+				D8F8E0762C08B17B00FD8EBE /* JournalView.swift in Sources */,
 				D81A683F2BF3997700A0ADA4 /* FourFingerTouchApp.swift in Sources */,
-				D81A686F2BFF791900A0ADA4 /* ViewNavigator.swift in Sources */,
+				D8F8E0612C075B6400FD8EBE /* Hypnago2FingerView.swift in Sources */,
+				D8F8E06A2C08B12300FD8EBE /* AppManager.swift in Sources */,
+				D8F8E0782C08B18B00FD8EBE /* CreateEntryView.swift in Sources */,
+				D8F8E0742C08B16F00FD8EBE /* ViewNavigator.swift in Sources */,
+				D81A68782C060BD100A0ADA4 /* Sherbert.swift in Sources */,
 				1AAC50B62C07554100FD70C3 /* GradientView.swift in Sources */,
-				D81A686D2BFEA63000A0ADA4 /* BeginHypnagoView.swift in Sources */,
 				64D75C8A2BFF9BD100829A85 /* AudioManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,7 +346,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"FourFingerTouch/Preview Content\"";
 				DEVELOPMENT_TEAM = CYB7XMX77J;
 				ENABLE_PREVIEWS = YES;
@@ -322,8 +354,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -343,7 +375,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"FourFingerTouch/Preview Content\"";
 				DEVELOPMENT_TEAM = CYB7XMX77J;
 				ENABLE_PREVIEWS = YES;
@@ -351,8 +383,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

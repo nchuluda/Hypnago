@@ -10,29 +10,31 @@ import SwiftUI
 struct JournalView: View {
 //    @StateObject var journalModel: JournalModel = JournalModel()    
 //    @EnvironmentObject var journalModel: JournalModel
+    @Environment(AppManager.self) var appManager
     @Environment(JournalModel.self) var journalModel
     @Namespace var animation
     
     var body: some View {
+        GeometryReader { geo in
+        
         ZStack {
-            ScrollView(.vertical, showsIndicators: false) {
-                HeaderView()
+            VStack {
                 
-                // MONTH
-                Text("\(journalModel.viewingDate.month)")
-                    .font(.title3.bold())
-                
-                
-                
-                ScrollView(.horizontal, showsIndicators: false) {
+                // MONTH HEADER
+                HStack {
+                    Text("\(journalModel.viewingDate.month)")
+                        .font(.title.bold())
+                    .padding(.top, getSafeArea().top)
+                }
+
+                // CALENDAR
                     HStack(spacing: 1) {
                         Button {
-                            journalModel.currentWeek = journalModel.previousWeek
-                            journalModel.viewingDate = Calendar.current.date(byAdding: .day, value: -7, to: journalModel.viewingDate)!
-                            journalModel.fetchPreviousNextWeek()
+                            journalModel.switchToPreviousWeek()
                         } label: {
                             Label("", systemImage: "chevron.left")
                         }
+                        
                         ForEach(journalModel.currentWeek, id: \.self) { day in
                             VStack(spacing: 10) {
                                 
@@ -41,18 +43,25 @@ struct JournalView: View {
                                 Text(journalModel.extractDate(date: day, format: "dd"))
                                     .font(.system(size: 15))
                                     .fontWeight(.semibold)
-    //                                .foregroundStyle(.white)
+                                    .foregroundStyle(journalModel.isToday(date: day) ? Color("BackgroundColor") : Color("TextColor"))
                                    
                                 // EEE will return day as MON, TUE, WED ... etc
                                 Text(journalModel.extractDate(date: day, format: "EEE"))
                                     .font(.system(size: 14))
-    //                                .foregroundStyle(.white)
+                                    .foregroundStyle(journalModel.isToday(date: day) ? Color("BackgroundColor") : Color("TextColor"))
                                 
-                                Circle()
-                                    .fill(.white)
-                                    .frame(width: 8, height: 8)
+                                ZStack {
+                                    // Blue circle if day has entries
+                                    Circle()
+                                        .fill(.blue)
+                                        .frame(width: 8, height: 8)
+                                        .opacity(journalModel.dayHasEntries(day: day) ? 1 : 0)
+                                    // White circle for selected day
+                                    Circle()
+                                        .fill(journalModel.isToday(date: day) ? Color("BackgroundColor") : Color("TextColor"))
+                                        .frame(width: 8, height: 8)
                                     .opacity(journalModel.isToday(date: day) ? 1 : 0)
-                                
+                                }
                             }
                             .foregroundStyle(journalModel.isToday(date: day) ? .primary : .secondary )
                             .foregroundColor(journalModel.isToday(date: day) ? .white : .black)
@@ -61,7 +70,7 @@ struct JournalView: View {
                                 ZStack {
                                     if journalModel.isToday(date: day) {
                                         Capsule()
-                                            .fill(.black)
+                                            .fill(Color("TextColor"))
                                             .matchedGeometryEffect(id: "CURRENTDAY", in: animation)
                                     }
                                 }
@@ -75,20 +84,24 @@ struct JournalView: View {
                             }
                         }
                         Button {
-                            print("Next Week")
-                            journalModel.currentWeek = journalModel.nextWeek
-                            journalModel.viewingDate = Calendar.current.date(byAdding: .day, value: 7, to: journalModel.viewingDate)!
-                            journalModel.fetchPreviousNextWeek()
+                            journalModel.switchToNextWeek()
+
                         } label: {
                             Label("", systemImage: "chevron.right")
                         }
                     }
                     .padding(.horizontal)
+
+                SessionsCompletedView(width: geo.size.width * 0.9)
+                                
+                ScrollView(.vertical, showsIndicators: false) {
+                    
+                    JournalsView()
                 }
-                JournalsView()
             }
             .ignoresSafeArea(.container, edges: .top)
 //            BeginHypnagoView()
+        }
         }
     }
     
@@ -106,10 +119,6 @@ struct JournalView: View {
                         JournalCardView(journal: journal)
                     }
                 }
-                
-            } else {
-                // MARK: Progress View
-                // ProgressView()
             }
         }
         
@@ -120,41 +129,10 @@ struct JournalView: View {
         .task {
             journalModel.filterTodayJournals()
         }
-        
     }
     
-    func NewHypnagoButton() -> some View {
-        Button {
-            
-        } label: {
-            Image(systemName: "plus")
-                .resizable(resizingMode: .stretch)
-                .font(.largeTitle)
-                .frame(width: 65, height: 65)
-                .background(Color.white)
-                .clipShape(Circle())
-                .foregroundColor(Color.purple)
-        }
-    }
-    
-    func JournalCardView(journal: Journal) -> some View {
-         
+    func JournalCardView(journal: Entry) -> some View {
         HStack {
-//            VStack(spacing: 10) {
-//                Circle()
-//                    .fill(.black)
-//                    .frame(width: 15, height: 15)
-//                    .background(
-//                        Circle()
-//                            .stroke(.black, lineWidth: 1)
-//                            .padding(-3)
-//                    )
-//
-//                Rectangle()
-//                    .fill(.black)
-//                    .frame(width: 3)
-//            }
-            
             VStack {
                 HStack(alignment: .top, spacing: 10) {
                     VStack(alignment: .leading, spacing: 12) {
@@ -164,45 +142,14 @@ struct JournalView: View {
                             Spacer()
                             Text(journal.date.formatted(date: .omitted, time: .shortened))
                         }
-                        
                         Text(journal.entry)
                             .font(.callout)
                             .foregroundStyle(.secondary)
                     }
-                    
-                    HStack(spacing: 0) {
-                        
-                    }
                 }
             }
             .padding(20)
-//            .foregroundColor(.white)
-//            .padding()
-//            .background(
-//                Color("Black")
-//                    .cornerRadius(25)
-//            )
         }
-        
-        
-        
-//        HStack(alignment: .top, spacing: 30) {
-//            VStack(spacing: 10) {
-//                VStack {
-//                    HStack(alignment: .top, spacing: 10) {
-//                        VStack(alignment: .leading, spacing: 12) {
-//                            Text(journal.name)
-//                                .font(.title2.bold())
-//
-//                            Text(journal.entry)
-//                                .font(.callout)
-//                                .foregroundStyle(.secondary)
-//                        }
-//                    }
-//                }
-//            }
-//            .padding(20)
-//        }
     }
     
     func HeaderView() -> some View {
@@ -214,6 +161,62 @@ struct JournalView: View {
         .padding()
         .padding(.top, getSafeArea().top)
         .background(Color("backgroundColor"))
+    }
+    
+    func NewEntryButton() -> some View {
+        Button(action: {
+            appManager.appState = .setup
+        }) {
+            ZStack {
+                Circle()
+                    .frame(width: 53, height: 53)
+                    .foregroundColor(Color("BackgroundColor"))
+                Circle()
+                    .frame(width: 50, height: 50)
+                    .foregroundColor(Color("TextColor"))
+                Image(systemName: "plus")
+                    .foregroundColor(Color("BackgroundColor"))
+                    .imageScale(.large)
+                    .fontWeight(.bold)
+                    .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+//                    .frame(width: 50, height: 50)
+            }
+        }
+    }
+    
+    func SessionsCompletedView(width: CGFloat) -> some View {
+            ZStack {
+                RoundedRectangle(cornerRadius: 25.0)
+                    .fill(.white)
+                RoundedRectangle(cornerRadius: 25.0)
+                    .fill(
+                        LinearGradient(gradient: Gradient(colors: [Color.teal.opacity(0.5), Color.clear]), startPoint: .bottom, endPoint: .top)
+                    )
+                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                    .fill(
+                        LinearGradient(gradient: Gradient(colors: [Color.yellow.opacity(0.3), Color.clear]), startPoint: .leading, endPoint: .trailing)
+                    )
+                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                    .fill(
+                        LinearGradient(gradient: Gradient(colors: [Color.red.opacity(0.3), Color.clear]), startPoint: .trailing, endPoint: .leading)
+                    )
+                VStack {
+                    HStack {
+                        Text("\(journalModel.completedSessions)")
+                            .font(.title.bold())
+                            .foregroundColor(.black)
+                            .padding()
+                        Text("Sessions Completed")
+                            .font(.subheadline.bold())
+                            .foregroundColor(.black)
+    //                    Image(systemName: "square.and.pencil")
+                        NewEntryButton()
+                            .padding(.leading)
+                    }
+                }
+            }
+            .frame(width: width, height: 100)
+            .padding(.top)
     }
 }
 
@@ -248,6 +251,7 @@ extension View {
 
 #Preview {
     JournalView()
+        .environment(AppManager.sample)
         .environment(JournalModel.sample)
         
 }
