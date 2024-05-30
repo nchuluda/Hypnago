@@ -23,7 +23,7 @@ struct ViewNavigator: View {
             HypnagoView(audio: AudioRecorder())
                 .environment(appManager)
         case .createEntry:
-            CreateEntryView()
+            CreateEntryView(audio: AudioRecorder())
                 .environment(appManager)
                 .environment(journalModel)
         case .history:

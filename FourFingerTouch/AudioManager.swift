@@ -14,6 +14,7 @@ import Combine
 class AudioRecorder: ObservableObject {
     let objectWillChange = PassthroughSubject<AudioRecorder, Never>()
     var audioRecorder: AVAudioRecorder!
+    var audioPlayer = AudioPlayer()
     var audios: [URL] = []
     var recordingSession: AVAudioSession!
     var recording = false {
@@ -21,6 +22,7 @@ class AudioRecorder: ObservableObject {
             objectWillChange.send(self)
         }
     }
+    
     
     func startRecording() {
         do {
@@ -89,6 +91,46 @@ class AudioRecorder: ObservableObject {
         audioRecorder.stop()
         recording = false
     }
+    
+    func playAudio(audio: URL) {
+        if audioPlayer.isPlaying {
+            audioPlayer.stopPlayback()
+        } else {
+            audioPlayer.startPlayback(audio: audio)
+        }
+    }
 }
+
+class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
+    let objectWillChange = PassthroughSubject<AudioPlayer, Never>()
+    var audioPlayer: AVAudioPlayer!
+    var isPlaying = false {
+        didSet {
+            objectWillChange.send(self)
+        }
+    }
+    
+    func startPlayback(audio: URL) {
+        do {
+            self.audioPlayer = try AVAudioPlayer(contentsOf: audio)
+            self.audioPlayer.play()
+            self.isPlaying = true
+            self.audioPlayer.delegate = self
+        } catch {
+            print("Failed to play audio")
+        }
+    }
+    func stopPlayback() {
+        audioPlayer.stop()
+        isPlaying = false
+    }
+    
+    @objc func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        isPlaying = false
+    }
+}
+
+    
+
 
 
