@@ -144,8 +144,8 @@ extension Date {
     }
 }
 
-//#if DEBUG
+#if DEBUG
 extension JournalModel {
     static let sample = JournalModel()
 }
-//#endif
+#endif
