@@ -20,10 +20,14 @@ struct Hypnago2FingerView: View {
     
     var body: some View {
         ZStack {
-            backgroundColor
-                .ignoresSafeArea()
+//            backgroundColor
+//                .ignoresSafeArea()
             VStack {
-                Text("Fingers touching: \(locations.count)")
+                Text("(\(locations.count)/2)")
+                    .font(.title)
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .padding()
+                Text("Place two fingers on screen to activate")
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 
                 if timerInitialized {
@@ -66,7 +70,7 @@ struct Hypnago2FingerView: View {
 //            }
         }
         .onChange(of: locations.count) {
-            if locations.count == 4 {
+            if locations.count == 2 {
                 self.timerInitialized = true
                 self.timerValue = 10
                 

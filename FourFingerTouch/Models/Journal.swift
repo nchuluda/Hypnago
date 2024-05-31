@@ -9,10 +9,11 @@ import Foundation
 import SwiftData
 
 @Model
-class Journal {
+final class Journal {
     var entries: [Entry] = []
     
     init(entries: [Entry]) {
         self.entries = entries
     }
 }
+
