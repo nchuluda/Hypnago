@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1AAC50B62C07554100FD70C3 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC50B52C07554100FD70C3 /* GradientView.swift */; };
+		6471939D2C09FDA600109BBE /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6471939C2C09FDA600109BBE /* RecordingView.swift */; };
+		64A45A7F2C08BE920008EE48 /* OnboardingPagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A45A7E2C08BE920008EE48 /* OnboardingPagesView.swift */; };
+		64A45A812C08BE970008EE48 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A45A802C08BE970008EE48 /* OnboardingView.swift */; };
 		64D75C8A2BFF9BD100829A85 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D75C892BFF9BD100829A85 /* AudioManager.swift */; };
 		D81A683F2BF3997700A0ADA4 /* FourFingerTouchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81A683E2BF3997700A0ADA4 /* FourFingerTouchApp.swift */; };
 		D81A68432BF3997800A0ADA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D81A68422BF3997800A0ADA4 /* Assets.xcassets */; };
@@ -30,6 +33,9 @@
 
 /* Begin PBXFileReference section */
 		1AAC50B52C07554100FD70C3 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		6471939C2C09FDA600109BBE /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
+		64A45A7E2C08BE920008EE48 /* OnboardingPagesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPagesView.swift; sourceTree = "<group>"; };
+		64A45A802C08BE970008EE48 /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		64D75C892BFF9BD100829A85 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		D81A683B2BF3997700A0ADA4 /* FourFingerTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourFingerTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81A683E2BF3997700A0ADA4 /* FourFingerTouchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourFingerTouchApp.swift; sourceTree = "<group>"; };
@@ -86,6 +92,8 @@
 				D8F8E0682C08A79800FD8EBE /* Models */,
 				D8F8E0672C08A76A00FD8EBE /* Views */,
 				1AAC50B52C07554100FD70C3 /* GradientView.swift */,
+				64A45A7E2C08BE920008EE48 /* OnboardingPagesView.swift */,
+				64A45A802C08BE970008EE48 /* OnboardingView.swift */,
 				64D75C892BFF9BD100829A85 /* AudioManager.swift */,
 				D81A68772C060BD100A0ADA4 /* Sherbert.swift */,
 				D81A68422BF3997800A0ADA4 /* Assets.xcassets */,
@@ -112,6 +120,7 @@
 				D8F8E0712C08B16100FD8EBE /* BeginHypnagoView.swift */,
 				D8F8E0602C075B6400FD8EBE /* Hypnago2FingerView.swift */,
 				D8F8E0622C075C8200FD8EBE /* Hypnago1FingerView.swift */,
+				6471939C2C09FDA600109BBE /* RecordingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -198,16 +207,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64A45A7F2C08BE920008EE48 /* OnboardingPagesView.swift in Sources */,
 				D8F8E0702C08B14E00FD8EBE /* JournalModel.swift in Sources */,
 				D8F8E07A2C08B19500FD8EBE /* HypangoView.swift in Sources */,
 				D8F8E06E2C08B14200FD8EBE /* Entry.swift in Sources */,
 				D8F8E0652C07776B00FD8EBE /* Journal.swift in Sources */,
 				D8F8E0632C075C8200FD8EBE /* Hypnago1FingerView.swift in Sources */,
+				6471939D2C09FDA600109BBE /* RecordingView.swift in Sources */,
 				D81A684D2BF399B300A0ADA4 /* MultiTouchView.swift in Sources */,
 				D8F8E06C2C08B13500FD8EBE /* AppState.swift in Sources */,
 				D8F8E0722C08B16200FD8EBE /* BeginHypnagoView.swift in Sources */,
 				D8F8E0762C08B17B00FD8EBE /* JournalView.swift in Sources */,
 				D81A683F2BF3997700A0ADA4 /* FourFingerTouchApp.swift in Sources */,
+				64A45A812C08BE970008EE48 /* OnboardingView.swift in Sources */,
 				D8F8E0612C075B6400FD8EBE /* Hypnago2FingerView.swift in Sources */,
 				D8F8E06A2C08B12300FD8EBE /* AppManager.swift in Sources */,
 				D8F8E0782C08B18B00FD8EBE /* CreateEntryView.swift in Sources */,
