@@ -13,6 +13,8 @@ struct JournalView: View {
     @Environment(AppManager.self) var appManager
     @Environment(JournalModel.self) var journalModel
     @Namespace var animation
+    @ObservedObject var audio = AudioRecorder()
+
     
     var body: some View {
         GeometryReader { geo in
@@ -118,6 +120,21 @@ struct JournalView: View {
                     ForEach(journals) { journal in
                         JournalCardView(journal: journal)
                     }
+                    List(self.audio.audios, id: \.self) { i in
+                        Text(i.formatted())
+                    }
+                    
+                    ForEach(audio.audios, id: \.self) { audio in
+                        HStack {
+                            Text(audio.lastPathComponent)
+                            Spacer()
+                            Button(action: {
+                                self.audio.playAudio(audio: audio)
+                            }) {
+                                Image(systemName: "play.circle")
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -145,6 +162,7 @@ struct JournalView: View {
                         Text(journal.entry)
                             .font(.callout)
                             .foregroundStyle(.secondary)
+                    
                     }
                 }
             }

@@ -33,6 +33,9 @@ struct CreateEntryView: View {
                     }
                     appManager.appState = .history
                 })
+                Button("Do you want to record?", action: {
+                    appManager.appState = .recording
+                })
             }
         }
     }

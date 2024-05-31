@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1AAC50B62C07554100FD70C3 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC50B52C07554100FD70C3 /* GradientView.swift */; };
-		6471939D2C09FDA600109BBE /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6471939C2C09FDA600109BBE /* RecordingView.swift */; };
-		64A45A7F2C08BE920008EE48 /* OnboardingPagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A45A7E2C08BE920008EE48 /* OnboardingPagesView.swift */; };
-		64A45A812C08BE970008EE48 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A45A802C08BE970008EE48 /* OnboardingView.swift */; };
 		1AAC51062C08D51700FD70C3 /* FingerButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC51052C08D51700FD70C3 /* FingerButtonView.swift */; };
 		1AAC510E2C08D78100FD70C3 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAC510D2C08D78100FD70C3 /* WidgetKit.framework */; };
 		1AAC51102C08D78100FD70C3 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAC510F2C08D78100FD70C3 /* SwiftUI.framework */; };
@@ -20,6 +17,9 @@
 		1AAC51192C08D78100FD70C3 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC51182C08D78100FD70C3 /* AppIntent.swift */; };
 		1AAC511B2C08D78200FD70C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AAC511A2C08D78200FD70C3 /* Assets.xcassets */; };
 		1AAC511F2C08D78200FD70C3 /* HypnagoWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1AAC510B2C08D78100FD70C3 /* HypnagoWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6471939D2C09FDA600109BBE /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6471939C2C09FDA600109BBE /* RecordingView.swift */; };
+		64A45A7F2C08BE920008EE48 /* OnboardingPagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A45A7E2C08BE920008EE48 /* OnboardingPagesView.swift */; };
+		64A45A812C08BE970008EE48 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A45A802C08BE970008EE48 /* OnboardingView.swift */; };
 		64D75C8A2BFF9BD100829A85 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D75C892BFF9BD100829A85 /* AudioManager.swift */; };
 		D81A683F2BF3997700A0ADA4 /* FourFingerTouchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81A683E2BF3997700A0ADA4 /* FourFingerTouchApp.swift */; };
 		D81A68432BF3997800A0ADA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D81A68422BF3997800A0ADA4 /* Assets.xcassets */; };
@@ -38,8 +38,6 @@
 		D8F8E0762C08B17B00FD8EBE /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E0752C08B17A00FD8EBE /* JournalView.swift */; };
 		D8F8E0782C08B18B00FD8EBE /* CreateEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E0772C08B18A00FD8EBE /* CreateEntryView.swift */; };
 		D8F8E07A2C08B19500FD8EBE /* Hypango4FingerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E0792C08B19500FD8EBE /* Hypango4FingerView.swift */; };
-		D8F8E07D2C08C6EC00FD8EBE /* OnboardingPagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E07B2C08C6EC00FD8EBE /* OnboardingPagesView.swift */; };
-		D8F8E07E2C08C6EC00FD8EBE /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E07C2C08C6EC00FD8EBE /* OnboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,9 +66,6 @@
 
 /* Begin PBXFileReference section */
 		1AAC50B52C07554100FD70C3 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		6471939C2C09FDA600109BBE /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
-		64A45A7E2C08BE920008EE48 /* OnboardingPagesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPagesView.swift; sourceTree = "<group>"; };
-		64A45A802C08BE970008EE48 /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		1AAC51052C08D51700FD70C3 /* FingerButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerButtonView.swift; sourceTree = "<group>"; };
 		1AAC510B2C08D78100FD70C3 /* HypnagoWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HypnagoWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AAC510D2C08D78100FD70C3 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -81,6 +76,9 @@
 		1AAC51182C08D78100FD70C3 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
 		1AAC511A2C08D78200FD70C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1AAC511C2C08D78200FD70C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6471939C2C09FDA600109BBE /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
+		64A45A7E2C08BE920008EE48 /* OnboardingPagesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPagesView.swift; sourceTree = "<group>"; };
+		64A45A802C08BE970008EE48 /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		64D75C892BFF9BD100829A85 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		D81A683B2BF3997700A0ADA4 /* FourFingerTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourFingerTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81A683E2BF3997700A0ADA4 /* FourFingerTouchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourFingerTouchApp.swift; sourceTree = "<group>"; };
@@ -198,8 +196,6 @@
 			children = (
 				D8F8E0732C08B16F00FD8EBE /* ViewNavigator.swift */,
 				1AAC51052C08D51700FD70C3 /* FingerButtonView.swift */,
-				D8F8E0622C075C8200FD8EBE /* Hypnago1FingerView.swift */,
-				D8F8E0602C075B6400FD8EBE /* Hypnago2FingerView.swift */,
 				D8F8E0792C08B19500FD8EBE /* Hypango4FingerView.swift */,
 				D8F8E0772C08B18A00FD8EBE /* CreateEntryView.swift */,
 				D8F8E0752C08B17A00FD8EBE /* JournalView.swift */,
@@ -377,7 +373,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NG7D448GT2;
+				DEVELOPMENT_TEAM = 6W2BB3Y823;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HypnagoWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = HypnagoWidget;
@@ -405,7 +401,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NG7D448GT2;
+				DEVELOPMENT_TEAM = 6W2BB3Y823;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HypnagoWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = HypnagoWidget;
@@ -554,7 +550,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"FourFingerTouch/Preview Content\"";
-				DEVELOPMENT_TEAM = CYB7XMX77J;
+				DEVELOPMENT_TEAM = 6W2BB3Y823;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -584,7 +580,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"FourFingerTouch/Preview Content\"";
-				DEVELOPMENT_TEAM = CYB7XMX77J;
+				DEVELOPMENT_TEAM = 6W2BB3Y823;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

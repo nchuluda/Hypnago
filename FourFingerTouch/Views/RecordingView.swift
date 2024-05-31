@@ -10,12 +10,12 @@ import SwiftUI
 struct RecordingView: View {
     
     @ObservedObject var audio = AudioRecorder()
+    @Environment(AppManager.self) var appManager
+
     
     var body: some View {
        
-        List(self.audio.audios, id: \.self) { i in
-            Text(i.formatted())
-        }
+        
         Button(action: {
             audio.startRecording()
             
@@ -26,24 +26,17 @@ struct RecordingView: View {
                 .foregroundColor(audio.recording ? .red : .green)
                 .frame(width: 70, height: 70)
         })
-        ForEach(audio.audios, id: \.self) { audio in
-            HStack {
-                Text(audio.lastPathComponent)
-                Spacer()
-                Button(action: {
-                    self.audio.playAudio(audio: audio)
-                }) {
-                    Image(systemName: "play.circle")
-                }
-            }
-        }
         
         Text(audio.recording ? "Recording..." : "Click to Record")
             .font(.caption)
             .bold()
             .foregroundColor(audio.recording ? .green : .red)
+            .padding()
         
-        
+        Button("Submit", action: {
+            appManager.appState = .history
+        })
+        .padding()
         
     }
 }
