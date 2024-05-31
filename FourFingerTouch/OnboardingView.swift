@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    
-//    @AppStorage("onBoarding") private var startOnBoarding = true
     @Environment(AppManager.self) var appManager
     @AppStorage("onBoarding") private var startOnBoarding = true
     @State private var currentPage = 0

@@ -47,10 +47,7 @@ struct Hypnago2FingerView: View {
             }
 
             ForEach(locations, id: \.self) { location in
-                Circle()
-                    .stroke(lineWidth: 4.0)
-                    .fill(Color.green)
-                    .frame(width: 80, height: 80)
+                FingerButtonView()
                     .position(x: location.point.x, y: location.point.y)
             }
 
