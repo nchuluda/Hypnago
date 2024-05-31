@@ -1,13 +1,13 @@
 //
-//  Hypnago2FingerView.swift
+//  ContentView.swift
 //  FourFingerTouch
 //
-//  Created by Nathan on 5/29/24.
+//  Created by Nathan on 5/14/24.
 //
 
 import SwiftUI
 
-struct Hypnago2FingerView: View {
+struct Hypnago4FingerView: View {
     @Environment(AppManager.self) var appManager
     @State var locations: [TouchLocation] = []
 //    @State var showTimer: Bool = false
@@ -19,19 +19,21 @@ struct Hypnago2FingerView: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
+        
         ZStack {
 //            backgroundColor
 //                .ignoresSafeArea()
             VStack {
-                Text("(\(locations.count)/2)")
+                Text("(\(locations.count)/4)")
                     .font(.title)
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .padding()
-                Text("Place two fingers on screen to activate")
+                Text("Place four fingers on screen to activate")
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 
+                
                 if timerInitialized {
-                    if locations.count < 2 {
+                    if locations.count < 4 {
                         Text("Timer: \(timerValue)")
                             .onReceive(timer) { _ in
                                 if timerValue > 0 {
@@ -45,12 +47,12 @@ struct Hypnago2FingerView: View {
                     }
                 }
             }
-
+ 
             ForEach(locations, id: \.self) { location in
                 FingerButtonView()
                     .position(x: location.point.x, y: location.point.y)
             }
-
+            
             MultiTouchView(locations: $locations)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             
@@ -67,7 +69,7 @@ struct Hypnago2FingerView: View {
 //            }
         }
         .onChange(of: locations.count) {
-            if locations.count == 2 {
+            if locations.count == 4 {
                 self.timerInitialized = true
                 self.timerValue = 10
                 
@@ -91,6 +93,6 @@ struct Hypnago2FingerView: View {
 }
 
 #Preview {
-    Hypnago2FingerView()
+    Hypnago4FingerView()
         .environment(AppManager.sample)
 }

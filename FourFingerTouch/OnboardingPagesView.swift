@@ -10,12 +10,12 @@ import SwiftUI
 struct PageOne: View {
     var body: some View {
         ZStack {
-            Color.colorOnboardingBackground
+            Color.onboardingBackground
                 .ignoresSafeArea()
             VStack{
                 Text("HYPNAGO")
                     .fontWeight(.black)
-                    .foregroundColor(.colorOnboardingText)
+                    .foregroundColor(.onboardingText)
                     .font(.system(.largeTitle, design: .serif))
             }
         }
@@ -24,7 +24,7 @@ struct PageOne: View {
 struct PageTwo: View {
     var body: some View {
         ZStack {
-            Color.colorOnboardingBackground
+            Color.onboardingBackground
                 .ignoresSafeArea()
             VStack {
                 
@@ -36,7 +36,7 @@ struct PageTwo: View {
                 VStack{
                     Text("What is it? Well for one, THIS IS NOT HYPNOSIS. We can’t do that, we promise. However, we can’t promise on any of the wild things your own brain will make when doing this activity.")
                     
-                        .foregroundColor(.colorOnboardingText)
+                        .foregroundColor(.onboardingText)
                         .font(.system(.title, design: .serif))
                     Spacer()
                 }
@@ -46,9 +46,10 @@ struct PageTwo: View {
 struct PageThree: View {
 //    @AppStorage("startOnBoarding") var startOnBoarding = true
     @Environment(AppManager.self) var appManager
+    @AppStorage("onBoarding") private var startOnBoarding = true
     var body: some View {
         ZStack {
-            Color.colorOnboardingBackground
+            Color.onboardingBackground
                 .ignoresSafeArea()
             VStack {
                 Text(" What you’ll do ")
@@ -58,15 +59,12 @@ struct PageThree: View {
                 
                 Text("This is an explanation of what users can expect to do with the hypnagogia activity. It will be more detailed than this. \n \nWe will also mention some creatives that have done this, you know for credibility.")
                 
-                    .foregroundColor(.colorOnboardingText)
+                    .foregroundColor(.onboardingText)
                     .font(.system(.title, design: .serif))
                 Spacer()
                 
                 Button("Continue") {
-//                    startOnBoarding.toggle()
-//                    print("ok")
-//                     startOnBoarding = false
-                    UserDefaults.standard.setValue(false, forKey: "startOnBoarding")
+                    startOnBoarding = false
                     appManager.appState = .setup
                     
                     

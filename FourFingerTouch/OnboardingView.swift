@@ -8,19 +8,17 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    
-//    @AppStorage("onBoarding") private var startOnBoarding = true
     @Environment(AppManager.self) var appManager
+    @AppStorage("onBoarding") private var startOnBoarding = true
+    @State private var currentPage = 0
+    private let totalPages = 3
     
-      @State private var currentPage = 0
-//      private let totalPages = 3
     var body: some View {
         
 //        if startOnBoarding {
             ZStack{
                 VStack {
                     TabView(selection: $currentPage) {
-                        
                         PageOne()
                             .tag(0)
                         PageTwo()

@@ -20,10 +20,14 @@ struct Hypnago1FingerView: View {
     
     var body: some View {
         ZStack {
-            backgroundColor
-                .ignoresSafeArea()
+//            backgroundColor
+//                .ignoresSafeArea()
             VStack {
-                Text("Fingers touching: \(locations.count)")
+                Text("(\(locations.count)/1)")
+                    .font(.title)
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .padding()
+                Text("Place one finger on screen to activate")
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 
                 if timerInitialized {
@@ -43,10 +47,7 @@ struct Hypnago1FingerView: View {
             }
 
             ForEach(locations, id: \.self) { location in
-                Circle()
-                    .stroke(lineWidth: 4.0)
-                    .fill(Color.green)
-                    .frame(width: 80, height: 80)
+                FingerButtonView()
                     .position(x: location.point.x, y: location.point.y)
             }
 
@@ -66,7 +67,7 @@ struct Hypnago1FingerView: View {
 //            }
         }
         .onChange(of: locations.count) {
-            if locations.count == 4 {
+            if locations.count == 1 {
                 self.timerInitialized = true
                 self.timerValue = 10
                 

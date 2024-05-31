@@ -9,7 +9,8 @@ import Foundation
 
 @Observable
 final class AppManager {
-    var appState: AppState = .setup
+    var appState: AppState = .onboarding
+    var fingerCount: FingerCount = .four
     var title: String?
     var entry: String?
 }

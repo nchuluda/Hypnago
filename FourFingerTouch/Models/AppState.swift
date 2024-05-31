@@ -12,6 +12,7 @@ enum AppState {
     case hypnagoSession
     case createEntry
     case history
+    case onboarding
     
 //    var nextPage: AppState {
 //        switch self {
@@ -22,3 +23,8 @@ enum AppState {
 //    }
 }
 
+enum FingerCount {
+    case four
+    case two
+    case one
+}

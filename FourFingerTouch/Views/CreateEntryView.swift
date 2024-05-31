@@ -10,8 +10,7 @@ import SwiftUI
 struct CreateEntryView: View {
     @Environment(AppManager.self) var appManager
     @Environment(JournalModel.self) var journalModel
-    @State var entry: String = ""    
-
+    @State var entry: String = ""
     
     var body: some View {
         VStack {
@@ -34,12 +33,10 @@ struct CreateEntryView: View {
                     }
                     appManager.appState = .history
                 })
-                .disabled(self.entry.isEmpty)
             }
         }
     }
-    }
-
+}
 
 #Preview {
     CreateEntryView()

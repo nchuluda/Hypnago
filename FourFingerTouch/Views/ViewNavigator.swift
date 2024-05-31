@@ -11,17 +11,34 @@ struct ViewNavigator: View {
     @State var appManager: AppManager
 //    @EnvironmentObject var journalModel: JournalModel
     @Environment(JournalModel.self) var journalModel
-
+    @AppStorage("onBoarding") private var startOnBoarding = true
 //    @ObservedObject var journalModel: JournalModel = JournalModel()
     
     var body: some View {
         switch appManager.appState {
+        case .onboarding:
+            if startOnBoarding {
+                OnboardingView()
+                    .environment(appManager)
+            } else {
+                BeginHypnagoView()
+                    .environment(appManager)
+            }
         case .setup:
             BeginHypnagoView()
                 .environment(appManager)
         case .hypnagoSession:
-            HypnagoView(audio: AudioRecorder())
-                .environment(appManager)
+            switch appManager.fingerCount {
+            case .four:
+                Hypnago4FingerView()
+                    .environment(appManager)
+            case .two:
+                Hypnago2FingerView()
+                    .environment(appManager)
+            case .one:
+                Hypnago1FingerView()
+                    .environment(appManager)
+            }
         case .createEntry:
             CreateEntryView()
                 .environment(appManager)
