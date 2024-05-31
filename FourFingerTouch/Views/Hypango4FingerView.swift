@@ -21,11 +21,16 @@ struct Hypnago4FingerView: View {
     var body: some View {
         
         ZStack {
-            backgroundColor
-                .ignoresSafeArea()
+//            backgroundColor
+//                .ignoresSafeArea()
             VStack {
-                Text("Fingers touching: \(locations.count)")
+                Text("(\(locations.count)/4)")
+                    .font(.title)
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .padding()
+                Text("Place four fingers on screen to activate")
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                
                 
                 if timerInitialized {
                     if locations.count < 4 {
@@ -42,30 +47,26 @@ struct Hypnago4FingerView: View {
                     }
                 }
             }
-            
-
-            
+ 
             ForEach(locations, id: \.self) { location in
                 FingerButtonView()
                     .position(x: location.point.x, y: location.point.y)
             }
             
-            
-            
             MultiTouchView(locations: $locations)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             
-            if timerExpired {
-                Button("Reset") {
-                    timerValue = 10
-                    timerInitialized = false
-                    timerExpired = false
-                    backgroundColor = Color.white
-                }
-                .buttonStyle(.borderedProminent)
-                .offset(y: 200)
-                
-            }
+//            if timerExpired {
+//                Button("Reset") {
+//                    timerValue = 10
+//                    timerInitialized = false
+//                    timerExpired = false
+//                    backgroundColor = Color.white
+//                }
+//                .buttonStyle(.borderedProminent)
+//                .offset(y: 200)
+//                
+//            }
         }
         .onChange(of: locations.count) {
             if locations.count == 4 {
