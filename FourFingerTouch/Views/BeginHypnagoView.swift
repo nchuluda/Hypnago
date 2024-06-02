@@ -14,25 +14,27 @@ struct BeginHypnagoView: View {
     
     var body: some View {
         VStack {
-            Text("Ready to Hypnago?")
-                .font(.title.bold())
+            Text("New Session")
+                .font(.system(.title, design: .serif))
+                .fontWeight(.black)
             Form {
                 
-                Section(header: Text("What is on your mind?")) {
+                Section(header: Text("Where will your mind go today?")) {
                     if self.title.isEmpty {
-                        Text("Please enter a title")
+                        Text("PLEASE ENTER A TITLE")
                             .foregroundColor(.red)
+                            .font(.caption)
                     }
                     TextField("Session Title", text: $title)
                 }
                 
-                Section(header: Text("How many fingers would you like to use?")) {
+                Section(header: Text("Select Finger Configuration:")) {
                     Picker("How would you like to hold your phone?", selection: $fingerCount) {
                         Text("One Finger").tag(FingerCount.one)
                         Text("Two Fingers").tag(FingerCount.two)
                         Text("Four Fingers").tag(FingerCount.four)
                     }
-                    .pickerStyle(.segmented)
+                    .pickerStyle(.inline)
                 }
                 Button("Submit", action: {
                     appManager.fingerCount = self.fingerCount

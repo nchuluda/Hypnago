@@ -38,4 +38,5 @@ struct OnboardingView: View {
 
 #Preview {
     OnboardingView()
+        .environment(AppManager.sample)
 }
