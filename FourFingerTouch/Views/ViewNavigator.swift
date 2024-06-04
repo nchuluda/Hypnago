@@ -18,7 +18,7 @@ struct ViewNavigator: View {
         switch appManager.appState {
         case .onboarding:
             if startOnBoarding {
-                OnboardingView()
+            OnboardingView()
                     .environment(appManager)
             } else {
                 BeginHypnagoView()
@@ -47,10 +47,10 @@ struct ViewNavigator: View {
             JournalView()
                 .environment(appManager)
                 .environment(journalModel)
-        case .recording:
-            RecordingView()
-                .environment(appManager)
-                .environment(journalModel)
+//        case .recording:
+//            RecordingView()
+//                .environment(appManager)
+//                .environment(journalModel)
         }
     }
 }
