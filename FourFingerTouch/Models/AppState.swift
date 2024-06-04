@@ -13,6 +13,7 @@ enum AppState {
     case createEntry
     case history
     case onboarding
+    case recording
     
 //    var nextPage: AppState {
 //        switch self {

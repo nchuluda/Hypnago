@@ -14,6 +14,8 @@ struct CreateEntryView: View {
     
     var body: some View {
         VStack {
+           
+            
             Text("Where did your mind go?")
                 .font(.system(.title, design: .serif))
                 .fontWeight(.black)
@@ -32,6 +34,9 @@ struct CreateEntryView: View {
                         appManager.entry = nil
                     }
                     appManager.appState = .history
+                })
+                Button("Do you want to record?", action: {
+                    appManager.appState = .recording
                 })
             }
         }
