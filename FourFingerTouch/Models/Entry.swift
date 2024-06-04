@@ -12,5 +12,5 @@ struct Entry: Identifiable, Equatable, Codable {
     var title: String
     var date: Date
     var entry: String
-    var recording: [URL]?
+  //  var recording: [URL]?
 }
