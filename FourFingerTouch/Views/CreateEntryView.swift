@@ -17,10 +17,12 @@ struct CreateEntryView: View {
            
             
             Text("Where did your mind go?")
-                .font(.title.bold())
+                .font(.system(.title, design: .serif))
+                .fontWeight(.black)
             Form {
                 Section(header: Text("Record your new ideas here:")) {
                     TextEditor(text: $entry)
+                        .frame(minHeight: 200)
                 }
                 
                 Button("Submit", action: {

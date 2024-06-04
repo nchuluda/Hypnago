@@ -27,21 +27,7 @@ struct PageTwo: View {
         ZStack {
             Color.onboardingBackground
                 .ignoresSafeArea()
-<<<<<<< Updated upstream
-            VStack {
-                
-                Text(" About hynagogia ")
-                    .font(.system(.title, design: .serif))
-                    .bold()
-                    .padding(30)
-                
-                VStack{
-                    Text("What is it? Well for one, THIS IS NOT HYPNOSIS. We can’t do that, we promise. However, we can’t promise on any of the wild things your own brain will make when doing this activity.")
-                    
-                        .foregroundColor(.onboardingText)
-                        .font(.system(.title, design: .serif))
-                    Spacer()
-=======
+
             ScrollView {
                 VStack(alignment: .leading) {
                     Text("Welcome to Hypnago!")
@@ -54,10 +40,25 @@ struct PageTwo: View {
                             .font(.system(.title3))
                             .padding()
                     }
->>>>>>> Stashed changes
                 }
-            }}
-    }}
+            }
+        }
+    }
+}
+
+struct InstructionStepView: View {
+    var stepNumber: Int
+    var description: String
+    var body: some View {
+        HStack(alignment: .top) {
+            Text("\(stepNumber).")
+                .font(.system(.body, design: .serif))
+                .fontWeight(.black)
+            Text(description)
+                .font(.body)
+        }
+    }
+}
 
 struct PageThree: View {
 //    @AppStorage("startOnBoarding") var startOnBoarding = true
@@ -72,6 +73,7 @@ struct PageThree: View {
                     Text("Using Hypnago to Explore Hypnagogia")
                         .font(.system(.title, design: .serif))
                         .fontWeight(.black)
+
                        
 //                    Text("\nWith Hypnago, you can effortlessly tap into the creative power of hypnagogia. Here’s how it works:\n")
 //                        .font(.system(.body))
@@ -98,6 +100,7 @@ struct PageThree: View {
                       //  .font(.body)
                 }
                 .padding()
+
                 Button(action: {
                     startOnBoarding = false
                     appManager.appState = .setup
@@ -113,7 +116,9 @@ struct PageThree: View {
                             RoundedRectangle(cornerRadius: 47)
                                 .stroke(Color.onboardingText, lineWidth: 2)
                         )})
+
              //   .padding()
+
                 Text("\n")
                     .foregroundColor(.onboardingText)
                     .font(.system(.body))
@@ -124,4 +129,5 @@ struct PageThree: View {
 
 #Preview {
     OnboardingView()
+        .environment(AppManager.sample)
 }

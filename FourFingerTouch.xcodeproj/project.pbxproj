@@ -206,8 +206,6 @@
 				1AAC51052C08D51700FD70C3 /* FingerButtonView.swift */,
 				D8F8E0792C08B19500FD8EBE /* Hypango4FingerView.swift */,
 				D8F8E0732C08B16F00FD8EBE /* ViewNavigator.swift */,
-				1AAC51052C08D51700FD70C3 /* FingerButtonView.swift */,
-				D8F8E0792C08B19500FD8EBE /* Hypango4FingerView.swift */,
 				D8F8E0772C08B18A00FD8EBE /* CreateEntryView.swift */,
 				D8F8E0752C08B17A00FD8EBE /* JournalView.swift */,
 				D8F8E0712C08B16100FD8EBE /* BeginHypnagoView.swift */,

@@ -20,12 +20,13 @@ struct JournalView: View {
         GeometryReader { geo in
         
         ZStack {
-            VStack {
+            VStack(alignment: .center) {
                 
                 // MONTH HEADER
                 HStack {
                     Text("\(journalModel.viewingDate.month)")
-                        .font(.title.bold())
+                        .font(.system(.title, design: .serif))
+                        .fontWeight(.black)
                     .padding(.top, getSafeArea().top)
                 }
 
@@ -36,6 +37,7 @@ struct JournalView: View {
                         } label: {
                             Label("", systemImage: "chevron.left")
                         }
+                        .font(.system(size: 20))
                         
                         ForEach(journalModel.currentWeek, id: \.self) { day in
                             VStack(spacing: 10) {
@@ -91,6 +93,7 @@ struct JournalView: View {
                         } label: {
                             Label("", systemImage: "chevron.right")
                         }
+                        .font(.system(size: 20))
                     }
                     .padding(.horizontal)
 
@@ -113,8 +116,8 @@ struct JournalView: View {
                 
                 if journals.isEmpty {
                     Text("No entries found.")
-                        .font(.system(size: 16))
-                        .fontWeight(.light)
+                        .font(.system(.headline, design: .serif))
+                        .fontWeight(.bold)
                         .offset(y: 100)
                 } else {
                     ForEach(journals) { journal in
@@ -194,7 +197,8 @@ struct JournalView: View {
                     .foregroundColor(Color("TextColor"))
                 Image(systemName: "plus")
                     .foregroundColor(Color("BackgroundColor"))
-                    .imageScale(.large)
+//                    .imageScale(.large)
+                    .font(.system(size: 20))
                     .fontWeight(.bold)
                     .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
 //                    .frame(width: 50, height: 50)
@@ -224,10 +228,21 @@ struct JournalView: View {
                             .font(.title.bold())
                             .foregroundColor(.black)
                             .padding()
-                        Text("Sessions Completed")
-                            .font(.subheadline.bold())
-                            .foregroundColor(.black)
-    //                    Image(systemName: "square.and.pencil")
+                        ViewThatFits {
+                            Text("Sessions Completed")
+                                .font(.system(.headline, design: .serif))
+                                .fontWeight(.bold)
+                                .foregroundColor(.black)
+        //                    Image(systemName: "square.and.pencil")
+                            Text("Sessions")
+                                .font(.system(.headline, design: .serif))
+                                .fontWeight(.bold)
+                                .foregroundColor(.black)
+                            Text("Done")
+                                .font(.system(.headline, design: .serif))
+                                .fontWeight(.bold)
+                                .foregroundColor(.black)
+                        }
                         NewEntryButton()
                             .padding(.leading)
                     }
