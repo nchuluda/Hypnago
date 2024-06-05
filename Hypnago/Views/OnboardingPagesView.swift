@@ -68,19 +68,15 @@ struct PageThree: View {
         ZStack {
             Color.onboardingBackground
                 .ignoresSafeArea()
-            ScrollView {
-                VStack(alignment: .leading) {
-                    Text("Using Hypnago to Explore Hypnagogia")
-                        .font(.system(.title, design: .serif))
-                        .fontWeight(.black)
-
-                       
-//                    Text("\nWith Hypnago, you can effortlessly tap into the creative power of hypnagogia. Here’s how it works:\n")
-//                        .font(.system(.body))
+            VStack {
+                Text("Using Hypnago to Explore Hypnagogia")
+                    .font(.system(.title, design: .serif))
+                    .fontWeight(.black)
+                ScrollView {
                     VStack(alignment: .leading, spacing: 10) {
                         InstructionStepView(stepNumber: 1, description: "Get Comfortable")
                             .bold()
-                            Text("Begin by finding a comfortable position and placing your fingers on your phone's screen however you see fit.")
+                        Text("Begin by finding a comfortable position and placing your fingers on your phone's screen however you see fit.")
                         InstructionStepView(stepNumber: 2, description: "Start the Session")
                             .bold()
                         Text("Hypnago detects when your fingers are in place. Relax and fall asleep!")
@@ -94,34 +90,24 @@ struct PageThree: View {
                             .bold()
                         Text("Use our calendar to review your entries, uncovering patterns and insights from your subconscious mind.")
                     }
-                    .padding()
-                    
-//                    Text("\nHypnago guides you through this unique cycle, helping you harness the fleeting moments of hypnagogia for enhanced creativity and self-discovery.")
-                      //  .font(.body)
+                    .padding(.horizontal)
+                    Button(action: {
+                        startOnBoarding = false
+                        appManager.appState = .setup
+                    }, label: {
+                        Text("Begin")
+                            .font(.system(.title3, design: .serif))
+                            .fontWeight(.black)
+                            .foregroundColor(.onboardingText)
+                            .padding()
+                            .background(Color.onboardingBackground)
+                            .cornerRadius(47)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 47)
+                                    .stroke(Color.onboardingText, lineWidth: 2)
+                            )})
+
                 }
-                .padding()
-
-                Button(action: {
-                    startOnBoarding = false
-                    appManager.appState = .setup
-                }, label: {
-                    Text("Begin")
-                        .font(.system(.title3, design: .serif))
-                        .fontWeight(.black)
-                        .foregroundColor(.onboardingText)
-                        .padding()
-                        .background(Color.onboardingBackground)
-                        .cornerRadius(47)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 47)
-                                .stroke(Color.onboardingText, lineWidth: 2)
-                        )})
-
-             //   .padding()
-
-                Text("\n")
-                    .foregroundColor(.onboardingText)
-                    .font(.system(.body))
             }
         }
     }

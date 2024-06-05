@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct JournalView: View {
 //    @StateObject var journalModel: JournalModel = JournalModel()    
@@ -14,23 +15,24 @@ struct JournalView: View {
     @Environment(JournalModel.self) var journalModel
     @Namespace var animation
     @ObservedObject var audio = AudioRecorder()
+    @Query var entries: [Entry]
 
     
     var body: some View {
         GeometryReader { geo in
-        
-        ZStack {
-            VStack(alignment: .center) {
-                
-                // MONTH HEADER
-                HStack {
-                    Text("\(journalModel.viewingDate.month)")
-                        .font(.system(.title, design: .serif))
-                        .fontWeight(.black)
-                    .padding(.top, getSafeArea().top)
-                }
-
-                // CALENDAR
+            
+            ZStack {
+                VStack(alignment: .center) {
+                    
+                    // MONTH HEADER
+                    HStack {
+                        Text("\(journalModel.viewingDate.month)")
+                            .font(.system(.title, design: .serif))
+                            .fontWeight(.black)
+                            .padding(.top, getSafeArea().top)
+                    }
+                    
+                    // CALENDAR
                     HStack(spacing: 1) {
                         Button {
                             journalModel.switchToPreviousWeek()
@@ -43,12 +45,11 @@ struct JournalView: View {
                             VStack(spacing: 10) {
                                 
                                 // dd will return day as 01, 02, 03 ... etc
-                                #warning("Font sizes are not dynamic")
                                 Text(journalModel.extractDate(date: day, format: "dd"))
                                     .font(.system(size: 15))
                                     .fontWeight(.semibold)
                                     .foregroundStyle(journalModel.isToday(date: day) ? Color("BackgroundColor") : Color("TextColor"))
-                                   
+                                
                                 // EEE will return day as MON, TUE, WED ... etc
                                 Text(journalModel.extractDate(date: day, format: "EEE"))
                                     .font(.system(size: 14))
@@ -64,7 +65,7 @@ struct JournalView: View {
                                     Circle()
                                         .fill(journalModel.isToday(date: day) ? Color("BackgroundColor") : Color("TextColor"))
                                         .frame(width: 8, height: 8)
-                                    .opacity(journalModel.isToday(date: day) ? 1 : 0)
+                                        .opacity(journalModel.isToday(date: day) ? 1 : 0)
                                 }
                             }
                             .foregroundStyle(journalModel.isToday(date: day) ? .primary : .secondary )
@@ -89,24 +90,27 @@ struct JournalView: View {
                         }
                         Button {
                             journalModel.switchToNextWeek()
-
+                            
                         } label: {
                             Label("", systemImage: "chevron.right")
                         }
                         .font(.system(size: 20))
                     }
                     .padding(.horizontal)
-
-                SessionsCompletedView(width: geo.size.width * 0.9)
-                                
-                ScrollView(.vertical, showsIndicators: false) {
                     
-                    JournalsView()
+                    SessionsCompletedView(width: geo.size.width * 0.9)
+                    
+                    ScrollView(.vertical, showsIndicators: false) {
+                        
+                        JournalsView()
+                    }
                 }
+                .ignoresSafeArea(.container, edges: .top)
+                //            BeginHypnagoView()
             }
-            .ignoresSafeArea(.container, edges: .top)
-//            BeginHypnagoView()
         }
+        .onAppear {
+            journalModel.storedJournals = entries
         }
     }
     
@@ -282,9 +286,9 @@ extension View {
     }
 }
 
-#Preview {
-    JournalView()
-        .environment(AppManager.sample)
-        .environment(JournalModel.sample)
-        
-}
+//#Preview {
+//    JournalView()
+//        .environment(AppManager.sample)
+//        .environment(JournalModel.sample)
+//        
+//}

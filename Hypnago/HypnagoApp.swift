@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
-struct FourFingerTouchApp: App {
+struct HypnagoApp: App {
     @State private var appManager = AppManager()
     @State var journalModel: JournalModel = JournalModel()
     @State var audioModel: AudioRecorder = AudioRecorder()
@@ -19,6 +20,7 @@ struct FourFingerTouchApp: App {
 //            JournalView()
             ViewNavigator(appManager: appManager)
                 .environment(journalModel)
+                .modelContainer(for: Entry.self)
 //            ContentView(audio: AudioRecorder())
         //    JournalView()
 

@@ -21,7 +21,7 @@ struct ViewNavigator: View {
             OnboardingView()
                     .environment(appManager)
             } else {
-                BeginHypnagoView()
+                JournalView()
                     .environment(appManager)
             }
         case .setup:
@@ -55,7 +55,7 @@ struct ViewNavigator: View {
     }
 }
 
-#Preview {
-    ViewNavigator(appManager: AppManager.sample)
-        .environment(JournalModel.sample)
-}
+//#Preview {
+//    ViewNavigator(appManager: AppManager.sample)
+//        .environment(JournalModel.sample)
+//}
