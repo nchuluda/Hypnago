@@ -158,7 +158,9 @@ struct JournalView: View {
                     VStack(alignment: .leading, spacing: 12) {
                         HStack {
                             Text(journal.title)
-                                .font(.title2.bold())
+                                .font(.system(.title3, design: .serif))
+                                .fontWeight(.black)
+                            
                             Spacer()
                             Text(journal.date.formatted(date: .omitted, time: .shortened))
                         }
