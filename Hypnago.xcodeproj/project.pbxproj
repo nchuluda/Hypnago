@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1AAC51062C08D51700FD70C3 /* FingerButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC51052C08D51700FD70C3 /* FingerButtonView.swift */; };
-		1AAC511F2C08D78200FD70C3 /* HypnagoWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1AAC510B2C08D78100FD70C3 /* HypnagoWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		643C881D2C0F52210009A8E4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAC510F2C08D78100FD70C3 /* SwiftUI.framework */; };
-		643C881E2C0F52210009A8E4 /* SwiftUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAC510F2C08D78100FD70C3 /* SwiftUI.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		64D75C8A2BFF9BD100829A85 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D75C892BFF9BD100829A85 /* AudioManager.swift */; };
 		D81A683F2BF3997700A0ADA4 /* HypnagoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81A683E2BF3997700A0ADA4 /* HypnagoApp.swift */; };
 		D81A68432BF3997800A0ADA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D81A68422BF3997800A0ADA4 /* Assets.xcassets */; };
@@ -32,16 +29,6 @@
 		D8F8E07A2C08B19500FD8EBE /* Hypango4FingerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8E0792C08B19500FD8EBE /* Hypango4FingerView.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		1AAC511D2C08D78200FD70C3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D81A68332BF3997700A0ADA4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1AAC510A2C08D78100FD70C3;
-			remoteInfo = HypnagoWidgetExtension;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		1AAC51232C08D78200FD70C3 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -49,27 +36,14 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				1AAC511F2C08D78200FD70C3 /* HypnagoWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		643C881F2C0F52210009A8E4 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				643C881E2C0F52210009A8E4 /* SwiftUI.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1AAC51052C08D51700FD70C3 /* FingerButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerButtonView.swift; sourceTree = "<group>"; };
-		1AAC510B2C08D78100FD70C3 /* HypnagoWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HypnagoWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AAC510F2C08D78100FD70C3 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		64D75C892BFF9BD100829A85 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		D81A683B2BF3997700A0ADA4 /* Hypnago.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hypnago.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,14 +68,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1AAC51082C08D78100FD70C3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				643C881D2C0F52210009A8E4 /* SwiftUI.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D81A68382BF3997700A0ADA4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -133,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				D81A683B2BF3997700A0ADA4 /* Hypnago.app */,
-				1AAC510B2C08D78100FD70C3 /* HypnagoWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -192,24 +157,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1AAC510A2C08D78100FD70C3 /* HypnagoWidgetExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1AAC51202C08D78200FD70C3 /* Build configuration list for PBXNativeTarget "HypnagoWidgetExtension" */;
-			buildPhases = (
-				1AAC51072C08D78100FD70C3 /* Sources */,
-				1AAC51082C08D78100FD70C3 /* Frameworks */,
-				1AAC51092C08D78100FD70C3 /* Resources */,
-				643C881F2C0F52210009A8E4 /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = HypnagoWidgetExtension;
-			productName = HypnagoWidgetExtension;
-			productReference = 1AAC510B2C08D78100FD70C3 /* HypnagoWidgetExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		D81A683A2BF3997700A0ADA4 /* Hypnago */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D81A68492BF3997800A0ADA4 /* Build configuration list for PBXNativeTarget "Hypnago" */;
@@ -222,7 +169,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				1AAC511E2C08D78200FD70C3 /* PBXTargetDependency */,
 			);
 			name = Hypnago;
 			productName = FourFingerTouch;
@@ -239,9 +185,6 @@
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
-					1AAC510A2C08D78100FD70C3 = {
-						CreatedOnToolsVersion = 15.4;
-					};
 					D81A683A2BF3997700A0ADA4 = {
 						CreatedOnToolsVersion = 15.3;
 					};
@@ -261,19 +204,11 @@
 			projectRoot = "";
 			targets = (
 				D81A683A2BF3997700A0ADA4 /* Hypnago */,
-				1AAC510A2C08D78100FD70C3 /* HypnagoWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1AAC51092C08D78100FD70C3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D81A68392BF3997700A0ADA4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -286,13 +221,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1AAC51072C08D78100FD70C3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D81A68372BF3997700A0ADA4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -320,71 +248,7 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		1AAC511E2C08D78200FD70C3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1AAC510A2C08D78100FD70C3 /* HypnagoWidgetExtension */;
-			targetProxy = 1AAC511D2C08D78200FD70C3 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		1AAC51212C08D78200FD70C3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = 6W2BB3Y823;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HypnagoWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = HypnagoWidget;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = msu.FourFingerTouch.HypnagoWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		1AAC51222C08D78200FD70C3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = 6W2BB3Y823;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HypnagoWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = HypnagoWidget;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = msu.FourFingerTouch.HypnagoWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		D81A68472BF3997800A0ADA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -511,7 +375,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_ASSET_PATHS = "\"FourFingerTouch/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Hypnago/Preview Content\"";
 				DEVELOPMENT_TEAM = CYB7XMX77J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -541,7 +405,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_ASSET_PATHS = "\"FourFingerTouch/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Hypnago/Preview Content\"";
 				DEVELOPMENT_TEAM = CYB7XMX77J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -567,15 +431,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1AAC51202C08D78200FD70C3 /* Build configuration list for PBXNativeTarget "HypnagoWidgetExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1AAC51212C08D78200FD70C3 /* Debug */,
-				1AAC51222C08D78200FD70C3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		D81A68362BF3997700A0ADA4 /* Build configuration list for PBXProject "Hypnago" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

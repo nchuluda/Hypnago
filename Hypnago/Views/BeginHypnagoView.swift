@@ -20,11 +20,6 @@ struct BeginHypnagoView: View {
             Form {
                 
                 Section(header: Text("Where will your mind go today?")) {
-                    if self.title.isEmpty {
-                        Text("PLEASE ENTER A TITLE")
-                            .foregroundColor(.red)
-                            .font(.caption)
-                    }
                     TextField("Session Title", text: $title)
                 }
                 
