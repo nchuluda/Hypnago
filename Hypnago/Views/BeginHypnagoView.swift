@@ -14,9 +14,25 @@ struct BeginHypnagoView: View {
     
     var body: some View {
         VStack {
+            
             Text("New Session")
                 .font(.system(.title, design: .serif))
                 .fontWeight(.black)
+                .frame(maxWidth: .infinity)
+                .overlay(alignment: .trailing) {
+                    Button {
+                        appManager.appState = .history
+                    } label: {
+                        Image(systemName: "xmark.circle")
+                            .font(.title)
+                            .foregroundColor(Color("BackgroundColor"))
+                            .background(Color("TextColor"))
+                            .clipShape(.circle)
+                    }
+                    .padding(.horizontal, 25)
+                }
+                
+            
             Form {
                 
                 Section(header: Text("Where will your mind go today?")) {
