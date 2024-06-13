@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BeginHypnagoView: View {
+struct NewEntryView: View {
     @Environment(AppManager.self) var appManager
     @State private var title = ""
     @State private var fingerCount: FingerCount = .four
@@ -39,15 +39,16 @@ struct BeginHypnagoView: View {
                     TextField("Session Title", text: $title)
                 }
                 
-                Section(header: Text("Select Finger Configuration:")) {
+//                Section(header: Text("Select Finger Configuration:")) {
                     Picker("How would you like to hold your phone?", selection: $fingerCount) {
                         Text("One Finger").tag(FingerCount.one)
                         Text("Two Fingers").tag(FingerCount.two)
+                        Text("Three Fingers").tag(FingerCount.three)
                         Text("Four Fingers").tag(FingerCount.four)
                     }
                     .pickerStyle(.inline)
-                }
-                Button("Submit", action: {
+//                }
+                Button("Start", action: {
                     appManager.fingerCount = self.fingerCount
                     appManager.title = self.title
                     appManager.appState = .hypnagoSession
@@ -59,6 +60,6 @@ struct BeginHypnagoView: View {
 }
 
 #Preview {
-    BeginHypnagoView()
+    NewEntryView()
         .environment(AppManager.sample)
 }

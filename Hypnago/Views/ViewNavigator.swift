@@ -21,16 +21,19 @@ struct ViewNavigator: View {
             OnboardingView()
                     .environment(appManager)
             } else {
-                BeginHypnagoView()
+                JournalView()
                     .environment(appManager)
             }
         case .setup:
-            BeginHypnagoView()
+            NewEntryView()
                 .environment(appManager)
         case .hypnagoSession:
             switch appManager.fingerCount {
             case .four:
                 Hypnago4FingerView()
+                    .environment(appManager)
+            case .three:
+                Hypnago3FingerView()
                     .environment(appManager)
             case .two:
                 Hypnago2FingerView()
@@ -40,7 +43,7 @@ struct ViewNavigator: View {
                     .environment(appManager)
             }
         case .createEntry:
-            CreateEntryView()
+            SubmitEntryView()
                 .environment(appManager)
                 .environment(journalModel)
         case .history:

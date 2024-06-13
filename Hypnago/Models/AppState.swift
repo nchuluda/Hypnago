@@ -26,6 +26,7 @@ enum AppState {
 
 enum FingerCount {
     case four
+    case three
     case two
     case one
 }

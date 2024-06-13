@@ -1,13 +1,15 @@
 //
-//  Hypnago1FingerView.swift
+//  Hypnago2FingerView.swift
 //  FourFingerTouch
 //
 //  Created by Nathan on 5/29/24.
 //
 
 import SwiftUI
+import AVFoundation
 
-struct Hypnago1FingerView: View {
+
+struct Hypnago2FingerView: View {
     @Environment(AppManager.self) var appManager
     @State var locations: [TouchLocation] = []
 //    @State var showTimer: Bool = false
@@ -16,22 +18,36 @@ struct Hypnago1FingerView: View {
     @State var timerExpired = false
     @State var backgroundColor = Color.white
     @State var showingAlert = false
+    @State private var audioPlayer: AVAudioPlayer?
+    
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
+    init() {
+        if let soundURL = Bundle.main.url(forResource: "ringLikeClock", withExtension: "mp3") {
+            do {
+                _audioPlayer = State(initialValue: try AVAudioPlayer(contentsOf: soundURL)) // Initialize in State
+                audioPlayer?.numberOfLoops = -1
+                audioPlayer?.prepareToPlay()
+            } catch {
+                print("Error loading sound file: \(error.localizedDescription)")
+            }
+        }
+    }
     
     var body: some View {
         ZStack {
 //            backgroundColor
 //                .ignoresSafeArea()
             VStack {
-                Text("(\(locations.count)/1)")
+                Text("(\(locations.count)/2)")
                     .font(.title)
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .padding()
-                Text("Place one finger on screen to activate")
+                Text("Place two fingers on screen to activate")
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 
                 if timerInitialized {
-                    if locations.count < 1 {
+                    if locations.count < 2 {
                         Text("Timer: \(timerValue)")
                             .onReceive(timer) { _ in
                                 if timerValue > 0 {
@@ -54,20 +70,9 @@ struct Hypnago1FingerView: View {
             MultiTouchView(locations: $locations)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             
-//            if timerExpired {
-//                Button("Reset") {
-//                    timerValue = 10
-//                    timerInitialized = false
-//                    timerExpired = false
-//                    backgroundColor = Color.white
-//                }
-//                .buttonStyle(.borderedProminent)
-//                .offset(y: 200)
-//
-//            }
         }
         .onChange(of: locations.count) {
-            if locations.count == 1 {
+            if locations.count == 2 {
                 self.timerInitialized = true
                 self.timerValue = 10
                 
@@ -76,9 +81,10 @@ struct Hypnago1FingerView: View {
         .onChange(of: timerValue) {
             UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
             if timerValue == 0 {
+                self.audioPlayer?.play()
                 showingAlert = true
                 self.timerExpired = true
-                backgroundColor = Color.red
+//                backgroundColor = Color.red
                 
             }
         }
@@ -91,6 +97,6 @@ struct Hypnago1FingerView: View {
 }
 
 #Preview {
-    Hypnago1FingerView()
+    Hypnago2FingerView()
         .environment(AppManager.sample)
 }

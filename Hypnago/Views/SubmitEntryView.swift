@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CreateEntryView: View {
+struct SubmitEntryView: View {
     @Environment(AppManager.self) var appManager
     @Environment(JournalModel.self) var journalModel
     @State var entry: String = ""
@@ -44,7 +44,7 @@ struct CreateEntryView: View {
 }
 
 #Preview {
-    CreateEntryView()
+    SubmitEntryView()
         .environment(AppManager.sample)
         .environment(JournalModel.sample)
 }

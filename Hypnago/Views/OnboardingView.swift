@@ -14,26 +14,16 @@ struct OnboardingView: View {
     private let totalPages = 3
     
     var body: some View {
-        
-//        if startOnBoarding {
-            ZStack{
-                VStack {
-                    TabView(selection: $currentPage) {
-                        PageOne()
-                            .tag(0)
-                        PageTwo()
-                            .tag(1)
-                        PageThree()
-                        
-                            .environment(appManager)
-                            .tag(2)
-                    }
-                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-                    .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-                    .padding()
-                }
-            }
-//        }
+        switch currentPage {
+        case 1:
+            OnboardingPageOne(currentPage: $currentPage)
+        case 2:
+            OnboardingPageTwo(currentPage: $currentPage)
+        case 3:
+            OnboardingPageThree(currentPage: $currentPage)
+        default:
+            OnboardingPageOne(currentPage: $currentPage)
+        }
     }}
 
 #Preview {
