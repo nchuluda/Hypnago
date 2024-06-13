@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct FourFingerTouchApp: App {
@@ -15,13 +16,9 @@ struct FourFingerTouchApp: App {
 
     var body: some Scene {
         WindowGroup {
-//            ContentView()
-//            JournalView()
             ViewNavigator(appManager: appManager)
                 .environment(journalModel)
-//            ContentView(audio: AudioRecorder())
-        //    JournalView()
-
+                .modelContainer(for: Entry.self)
         }
     }
 }

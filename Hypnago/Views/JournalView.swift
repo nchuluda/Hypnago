@@ -6,15 +6,15 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct JournalView: View {
-//    @StateObject var journalModel: JournalModel = JournalModel()    
-//    @EnvironmentObject var journalModel: JournalModel
     @Environment(AppManager.self) var appManager
     @Environment(JournalModel.self) var journalModel
+//    @Environment(\.modelContext) var modelContext
     @Namespace var animation
-    @ObservedObject var audio = AudioRecorder()
-    
+//    @ObservedObject var audio = AudioRecorder()
+    @Query var entries: [Entry]
     
     var body: some View {
         NavigationStack {
@@ -120,10 +120,12 @@ struct JournalView: View {
                         }
                     }
                     .ignoresSafeArea(.container, edges: .top)
-                    //            BeginHypnagoView()
                 }
             }
         }
+        .onAppear(perform:  {
+            journalModel.storedJournals = entries
+        })
     }
     
     func JournalsView() -> some View {
@@ -139,21 +141,21 @@ struct JournalView: View {
                     ForEach(journals) { journal in
                         JournalCardView(journal: journal)
                     }
-                    List(self.audio.audios, id: \.self) { i in
-                        Text(i.formatted())
-                    }
+//                    List(self.audio.audios, id: \.self) { i in
+//                        Text(i.formatted())
+//                    }
                     
-                    ForEach(audio.audios, id: \.self) { audio in
-                        HStack {
-                            Text(audio.lastPathComponent)
-                            Spacer()
-                            Button(action: {
-                                self.audio.playAudio(audio: audio)
-                            }) {
-                                Image(systemName: "play.circle")
-                            }
-                        }
-                    }
+//                    ForEach(audio.audios, id: \.self) { audio in
+//                        HStack {
+//                            Text(audio.lastPathComponent)
+//                            Spacer()
+//                            Button(action: {
+//                                self.audio.playAudio(audio: audio)
+//                            }) {
+//                                Image(systemName: "play.circle")
+//                            }
+//                        }
+//                    }
                 }
             }
         }

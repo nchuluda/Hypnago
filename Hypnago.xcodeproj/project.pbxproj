@@ -33,6 +33,7 @@
 		D8FD20512C1895C50031488B /* InstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FD20502C1895C50031488B /* InstructionsView.swift */; };
 		D8FD20552C19F51B0031488B /* Hypnago3FingerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FD20542C19F51A0031488B /* Hypnago3FingerView.swift */; };
 		D8FD20572C19F6C10031488B /* ringLikeClock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D8FD20562C19F6C10031488B /* ringLikeClock.mp3 */; };
+		D8FD20592C1B24160031488B /* EntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FD20582C1B24160031488B /* EntryDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -77,6 +78,7 @@
 		D8FD20502C1895C50031488B /* InstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsView.swift; sourceTree = "<group>"; };
 		D8FD20542C19F51A0031488B /* Hypnago3FingerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hypnago3FingerView.swift; sourceTree = "<group>"; };
 		D8FD20562C19F6C10031488B /* ringLikeClock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ringLikeClock.mp3; sourceTree = "<group>"; };
+		D8FD20582C1B24160031488B /* EntryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,10 +149,10 @@
 				1AAC51052C08D51700FD70C3 /* FingerButtonView.swift */,
 				D8F8E0712C08B16100FD8EBE /* NewEntryView.swift */,
 				D8F8E0772C08B18A00FD8EBE /* SubmitEntryView.swift */,
+				D8FD20582C1B24160031488B /* EntryDetailView.swift */,
 				D8F8E0752C08B17A00FD8EBE /* JournalView.swift */,
 				D8FD204E2C187C640031488B /* InstructionStepView.swift */,
 				D8CA276D2C1090C8001BD492 /* GradientView.swift */,
-				D8CA27692C1090AE001BD492 /* OnboardingView.swift */,
 				D8FD20502C1895C50031488B /* InstructionsView.swift */,
 			);
 			path = Views;
@@ -170,6 +172,7 @@
 		D8FD20522C1897FE0031488B /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				D8CA27692C1090AE001BD492 /* OnboardingView.swift */,
 				D8FD20462C187BDE0031488B /* OnboardingPageOne.swift */,
 				D8FD20482C187BF30031488B /* OnboardingPageTwo.swift */,
 				D8FD204A2C187BFE0031488B /* OnboardingPageThree.swift */,
@@ -260,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8FD20592C1B24160031488B /* EntryDetailView.swift in Sources */,
 				D8F8E0702C08B14E00FD8EBE /* JournalModel.swift in Sources */,
 				D8F8E07A2C08B19500FD8EBE /* Hypango4FingerView.swift in Sources */,
 				D8F8E06E2C08B14200FD8EBE /* Entry.swift in Sources */,

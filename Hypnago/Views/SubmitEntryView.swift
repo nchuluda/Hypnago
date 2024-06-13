@@ -10,6 +10,7 @@ import SwiftUI
 struct SubmitEntryView: View {
     @Environment(AppManager.self) var appManager
     @Environment(JournalModel.self) var journalModel
+    @Environment(\.modelContext) var modelContext
     @State var entry: String = ""
     
     var body: some View {
@@ -29,7 +30,8 @@ struct SubmitEntryView: View {
                     appManager.entry = self.entry
                     if let title = appManager.title,
                        let entry = appManager.entry {
-                        journalModel.storedJournals.append(Entry(title: title, date: Date(), entry: entry))
+                        modelContext.insert(Entry(title: title, date: Date(), entry: entry))
+//                        journalModel.storedJournals.append(Entry(title: title, date: Date(), entry: entry))
                         appManager.title = nil
                         appManager.entry = nil
                     }
