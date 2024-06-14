@@ -13,14 +13,14 @@ struct EntryDetailView: View {
 //    @Environment(JournalModel.self) var journalModel
 
     let entry: Entry
-    let dateAsString: String
+//    let dateAsString: String
     
     var body: some View {
         VStack {
             Text(entry.title)
                 .font(.title.bold())
-            Text(dateAsString)
-                .padding()
+//            Text(dateAsString)
+//                .padding()
             Text(entry.entry)
         }
         .padding()
@@ -34,6 +34,7 @@ struct EntryDetailView: View {
     let sampleEntry = Entry(title: "Marketing Campaign", date: Date(), entry: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In metus vulputate eu scelerisque felis imperdiet proin fermentum leo.")
     let sampleDate = "Friday June 13, 2024"
     
-    return EntryDetailView(entry: sampleEntry, dateAsString: sampleDate)
+//    return EntryDetailView(entry: sampleEntry, dateAsString: sampleDate)
+    return EntryDetailView(entry: sampleEntry)
        .modelContainer(container)
 }

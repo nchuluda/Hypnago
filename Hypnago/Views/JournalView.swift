@@ -139,6 +139,12 @@ struct JournalView: View {
                         .offset(y: 100)
                 } else {
                     ForEach(journals) { journal in
+//                        NavigationLink(value: journal) {
+//                            let dateAsString = journalModel.extractDate(date: journal.date, format: "MMM, YYYY")
+//                            EntryDetailView(entry: journal, dateAsString: dateAsString)
+//                        } label: {
+//                            JournalCardView(journal: journal)
+//                        }
                         JournalCardView(journal: journal)
                     }
 //                    List(self.audio.audios, id: \.self) { i in
@@ -170,27 +176,29 @@ struct JournalView: View {
     }
     
     func JournalCardView(journal: Entry) -> some View {
-        HStack {
-            VStack {
-                HStack(alignment: .top, spacing: 10) {
-                    VStack(alignment: .leading, spacing: 12) {
-                        HStack {
-                            Text(journal.title)
-                                .font(.system(.title3, design: .serif))
-                                .fontWeight(.black)
-                                .lineLimit(1)
-                            
-                            Spacer()
-                            Text(journal.date.formatted(date: .omitted, time: .shortened))
+        NavigationLink(destination: EntryDetailView(entry: journal)) {
+            HStack {
+                VStack {
+                    HStack(alignment: .top, spacing: 10) {
+                        VStack(alignment: .leading, spacing: 12) {
+                            HStack {
+                                Text(journal.title)
+                                    .font(.system(.title3, design: .serif))
+                                    .fontWeight(.black)
+                                    .lineLimit(1)
+                                
+                                Spacer()
+                                Text(journal.date.formatted(date: .omitted, time: .shortened))
+                            }
+                            Text(journal.entry)
+                                .font(.callout)
+                                .foregroundStyle(.secondary)
+                        
                         }
-                        Text(journal.entry)
-                            .font(.callout)
-                            .foregroundStyle(.secondary)
-                    
                     }
                 }
+                .padding(20)
             }
-            .padding(20)
         }
     }
     
