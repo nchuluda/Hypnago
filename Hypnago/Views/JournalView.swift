@@ -123,6 +123,7 @@ struct JournalView: View {
                 }
             }
         }
+        .foregroundColor(.onboardingText)
         .onAppear(perform:  {
             journalModel.storedJournals = entries
         })
@@ -192,8 +193,8 @@ struct JournalView: View {
                             }
                             Text(journal.entry)
                                 .font(.callout)
+                                .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
                                 .foregroundStyle(.secondary)
-                        
                         }
                     }
                 }
@@ -237,19 +238,19 @@ struct JournalView: View {
     
     func SessionsCompletedView(width: CGFloat) -> some View {
             ZStack {
-                RoundedRectangle(cornerRadius: 25.0)
+                RoundedRectangle(cornerRadius: 20.0)
                     .fill(.white)
-                RoundedRectangle(cornerRadius: 25.0)
+                RoundedRectangle(cornerRadius: 20.0)
                     .fill(
-                        LinearGradient(gradient: Gradient(colors: [Color.teal.opacity(0.5), Color.clear]), startPoint: .bottom, endPoint: .top)
+                        LinearGradient(gradient: Gradient(colors: [Color.indigo.opacity(0.3), Color.green.opacity(0.3)]), startPoint: .topLeading, endPoint: .bottomTrailing)
                     )
-                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                RoundedRectangle(cornerRadius: 20.0)
                     .fill(
-                        LinearGradient(gradient: Gradient(colors: [Color.yellow.opacity(0.3), Color.clear]), startPoint: .leading, endPoint: .trailing)
+                        LinearGradient(gradient: Gradient(colors: [Color.red.opacity(0.3), Color.mint.opacity(0.3)]), startPoint: .top, endPoint: .bottom)
                     )
-                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                RoundedRectangle(cornerRadius: 20.0)
                     .fill(
-                        LinearGradient(gradient: Gradient(colors: [Color.red.opacity(0.3), Color.clear]), startPoint: .trailing, endPoint: .leading)
+                        LinearGradient(gradient: Gradient(colors: [Color.orange.opacity(0.2), Color.blue.opacity(0.2)]), startPoint: .topTrailing, endPoint: .bottomLeading)
                     )
                 VStack {
                     HStack {
@@ -277,7 +278,7 @@ struct JournalView: View {
                     }
                 }
             }
-            .frame(width: width, height: 100)
+            .frame(width: width, height: 150)
             .padding(.top)
     }
 }

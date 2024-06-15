@@ -16,12 +16,14 @@ struct EntryDetailView: View {
 //    let dateAsString: String
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text(entry.title)
-                .font(.title.bold())
+                .font(.system(.title2, design:.serif))
+                .fontWeight(.black)
 //            Text(dateAsString)
 //                .padding()
             Text(entry.entry)
+                .font(.body)
         }
         .padding()
         .navigationTitle(entry.title)
