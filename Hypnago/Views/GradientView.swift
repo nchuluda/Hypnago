@@ -18,42 +18,36 @@ func CardGradient() -> some View {
         Rectangle()
             .fill(Color(.white))
         Rectangle()
-          .foregroundColor(.clear)
-          .background(
-            LinearGradient(
-                stops: [
-                Gradient.Stop(color: Color(red: 1, green: 0.75, blue: 0.87), location: 0.00),
-                Gradient.Stop(color: Color(red: 0.99, green: 0.89, blue: 0.94).opacity(0.76), location: 0.71),
-                Gradient.Stop(color: .white.opacity(0.5), location: 1.00),
-                ],
-              startPoint: UnitPoint(x: 0.58, y: 0.03),
-              endPoint: UnitPoint(x: 0.58, y: 1)
+            .foregroundColor(.clear)
+            .background(
+                LinearGradient(
+                    stops: [
+                        Gradient.Stop(color: Color(red: 0, green: 1, blue: 0.94).opacity(0.25), location: 0.18),
+                        Gradient.Stop(color: Color(red: 0.97, green: 0.06, blue: 0.34).opacity(0.25), location: 1.00),
+                    ],
+                    startPoint: UnitPoint(x: 1, y: 0),
+                    endPoint: UnitPoint(x: 0.03, y: 0.79)
+                )
             )
-          )
-        Rectangle()
-          .foregroundColor(.clear)
-          .background(
-            LinearGradient(
-                stops: [
-                Gradient.Stop(color: Color(red: 0.42, green: 0.84, blue: 0.87).opacity(0.5), location: 0.36),
-                Gradient.Stop(color: Color(red: 0.8, green: 0.94, blue: 0.95).opacity(0.37), location: 0.67),
-                Gradient.Stop(color: .white.opacity(0.25), location: 1.00),
-                ],
-              startPoint: .bottomLeading,
-              endPoint: .topTrailing
+            .background(
+                LinearGradient(
+                    stops: [
+                        Gradient.Stop(color: Color(red: 0.36, green: 1, blue: 0.14).opacity(0.35), location: 0.10),
+                        Gradient.Stop(color: Color(red: 0.83, green: 0.1, blue: 0.9).opacity(0.35), location: 0.87),
+                    ],
+                    startPoint: UnitPoint(x: 0.07, y: 0.27),
+                    endPoint: UnitPoint(x: 0.93, y: 0.96)
+                )
             )
-          )
-        Rectangle()
-          .foregroundColor(.clear)
-          .background(
-            LinearGradient(
-                stops: [
-                Gradient.Stop(color: Color(red: 0.9, green: 0.88, blue: 0.21).opacity(0.5), location: 0.00),
-                Gradient.Stop(color: Color(red: 0.94, green: 0.92, blue: 0.49).opacity(0.41), location: 0.43),
-                Gradient.Stop(color: .white.opacity(0.25), location: 1.00),
-                ],
-              startPoint: .bottomTrailing,
-              endPoint: .topLeading)
+            .background(
+                LinearGradient(
+                    stops: [
+                        Gradient.Stop(color: Color(red: 0.92, green: 0.71, blue: 0.16).opacity(0.3), location: 0.24),
+                        Gradient.Stop(color: Color(red: 0.32, green: 0.31, blue: 0.96).opacity(0.3), location: 1.00),
+                    ],
+                    startPoint: UnitPoint(x: 0.07, y: 0.88),
+                    endPoint: UnitPoint(x: 0.87, y: 0.06)
+                )
             )
     }
 }
