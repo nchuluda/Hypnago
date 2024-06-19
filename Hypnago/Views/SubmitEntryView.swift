@@ -12,10 +12,11 @@ struct SubmitEntryView: View {
     @Environment(JournalModel.self) var journalModel
     @Environment(\.modelContext) var modelContext
     @State var entry: String = ""
+    @State var isShowing = false
     
     var body: some View {
         VStack {
-           
+            
             
             Text("Where did your mind go?")
                 .font(.system(.title, design: .serif))
@@ -26,21 +27,30 @@ struct SubmitEntryView: View {
                         .frame(minHeight: 200)
                 }
                 
+                Button("Record", action: {
+                    isShowing = true
+                })
+                
                 Button("Submit", action: {
                     appManager.entry = self.entry
                     if let title = appManager.title,
                        let entry = appManager.entry {
                         modelContext.insert(Entry(title: title, date: Date(), entry: entry))
-//                        journalModel.storedJournals.append(Entry(title: title, date: Date(), entry: entry))
+                        //                        journalModel.storedJournals.append(Entry(title: title, date: Date(), entry: entry))
                         appManager.title = nil
                         appManager.entry = nil
                     }
                     appManager.appState = .history
                 })
-//                Button("Do you want to record?", action: {
-//                    appManager.appState = .recording
-//                })
+                //                Button("Do you want to record?", action: {
+                //                    appManager.appState = .recording
+                //                })
             }
+            .sheet(isPresented: $isShowing, content: {
+                RecordingView(audio: AudioRecorder())
+                    .presentationDetents([.medium])
+                
+            })
         }
     }
 }

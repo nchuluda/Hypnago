@@ -13,7 +13,7 @@ struct JournalView: View {
     @Environment(JournalModel.self) var journalModel
 //    @Environment(\.modelContext) var modelContext
     @Namespace var animation
-//    @ObservedObject var audio = AudioRecorder()
+    @ObservedObject var audio = AudioRecorder()
     @Query var entries: [Entry]
     
     var body: some View {
@@ -146,6 +146,17 @@ struct JournalView: View {
 //                        } label: {
 //                            JournalCardView(journal: journal)
 //                        }
+                        Button(action: {
+                        self.audio.getAudios()
+                        if let mostRecentAudio = self.audio.audios.first {
+                        print("Playing audio: \(mostRecentAudio)")
+                        self.audio.playAudio(audio: mostRecentAudio)
+                        } else {
+                        print("No recordings found")
+                        }
+                        }) {
+                        Image(systemName: "play.circle")
+                        }
                         JournalCardView(journal: journal)
                     }
 //                    List(self.audio.audios, id: \.self) { i in
