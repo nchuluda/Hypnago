@@ -15,6 +15,7 @@ struct JournalView: View {
     @Environment(JournalModel.self) var journalModel
     @Namespace var animation
     @ObservedObject var audio = AudioRecorder()
+    @ObservedObject var playbackAudio = AudioPlayer()
     @Query var entries: [Entry]
 
     
@@ -100,9 +101,17 @@ struct JournalView: View {
                     
                     SessionsCompletedView(width: geo.size.width * 0.9)
                     
+                    
+                    
                     ScrollView(.vertical, showsIndicators: false) {
                         
                         JournalsView()
+                        
+                       
+                            Spacer()
+                           
+                        
+                        
                     }
                 }
                 .ignoresSafeArea(.container, edges: .top)
@@ -113,6 +122,16 @@ struct JournalView: View {
             journalModel.storedJournals = entries
         }
     }
+    
+    
+//    func playbackAudios() {
+//        audio.getAudios()
+//        Button(action: {
+//            audio.playAudio(audio: audio.audioRecorder.url)
+//        }, label: {
+//            Image(systemName: "play.circle")
+//        })
+//    }
     
     func JournalsView() -> some View {
         LazyVStack(spacing: 18) {
@@ -126,22 +145,25 @@ struct JournalView: View {
                 } else {
                     ForEach(journals) { journal in
                         JournalCardView(journal: journal)
-                    }
-                    List(self.audio.audios, id: \.self) { i in
-                        Text(i.formatted())
-                    }
-                    
-                    ForEach(audio.audios, id: \.self) { audio in
-                        HStack {
-                            Text(audio.lastPathComponent)
-                            Spacer()
-                            Button(action: {
-                                self.audio.playAudio(audio: audio)
-                            }) {
-                                Image(systemName: "play.circle")
+                        Button(action: {
+                            self.audio.getAudios()
+                            if let mostRecentAudio = self.audio.audios.first {
+                                print("Playing audio: \(mostRecentAudio)")
+                                self.audio.playAudio(audio: mostRecentAudio)
+                            } else {
+                                print("No recordings found")
                             }
+                        }) {
+                            Image(systemName: "play.circle")
                         }
                     }
+                    
+                    
+//                    List(self.audio.audios, id: \.self) { i in
+//                        Text(i.formatted())
+//                    }
+                    
+                   
                 }
             }
         }
@@ -169,6 +191,7 @@ struct JournalView: View {
                         Text(journal.entry)
                             .font(.callout)
                             .foregroundStyle(.secondary)
+                        
                     
                     }
                 }

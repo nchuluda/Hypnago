@@ -22,12 +22,13 @@ final class Entry {
     var title: String
     var date: Date
     var entry: String
-//    var recording: [URL]?
+  //  var recording: URL?
     
     init(id: UUID = UUID(), title: String, date: Date, entry: String) {
         self.id = id
         self.title = title
         self.date = date
         self.entry = entry
+       
     }
 }

@@ -12,6 +12,8 @@ struct CreateEntryView: View {
     @Environment(JournalModel.self) var journalModel
     @State var entry: String = ""
     @Environment(\.modelContext) var modelContext
+    @State var isShowing = false
+    @ObservedObject var audio = AudioRecorder()
     
     var body: some View {
         VStack {
@@ -25,15 +27,23 @@ struct CreateEntryView: View {
                         .frame(minHeight: 200)
                 }
                 
+                Button("Record", action: {
+                    isShowing = true
+                })
+                
+                
                 Button("Submit", action: {
                     appManager.entry = self.entry
+                    audio.getAudios()
+                   
                     if let title = appManager.title,
                        let entry = appManager.entry {
-//                        journalModel.storedJournals.append(Entry(title: title, date: Date(), entry: entry))
-                        let newEntry = Entry(title: title, date: Date(), entry: entry)
-                        modelContext.insert(newEntry)
-                        appManager.title = nil
-                        appManager.entry = nil
+                        
+                            let newEntry = Entry(title: title, date: Date(), entry: entry)
+                            modelContext.insert(newEntry)
+                            appManager.title = nil
+                            appManager.entry = nil
+                        
                     }
                     appManager.appState = .history
                 })
@@ -42,11 +52,15 @@ struct CreateEntryView: View {
 //                })
             }
         }
+        .sheet(isPresented: $isShowing, content: {
+            RecordingView(audio: AudioRecorder())
+                .presentationDetents([.medium])
+        })
     }
 }
 
-//#Preview {
-//    CreateEntryView()
-//        .environment(AppManager.sample)
-//        .environment(JournalModel.sample)
-//}
+#Preview {
+    CreateEntryView()
+        .environment(AppManager.sample)
+        .environment(JournalModel.sample)
+}

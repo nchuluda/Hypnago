@@ -48,7 +48,7 @@ struct ViewNavigator: View {
                 .environment(appManager)
                 .environment(journalModel)
 //        case .recording:
-//            RecordingView()
+//            RecordingView(audio: AudioRecorder())
 //                .environment(appManager)
 //                .environment(journalModel)
         }

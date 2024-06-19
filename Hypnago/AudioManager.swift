@@ -47,14 +47,24 @@ class AudioRecorder: ObservableObject {
             let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             let result = try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil, options: .producesRelativePathURLs)
             
-            self.audios.removeAll()
             
-            for i in result {
-                self.audios.append(i)
-                print(audios.description)
-            }
+            self.audios = result.sorted {
+                       let date1 = try? $0.resourceValues(forKeys: [.creationDateKey]).creationDate ?? Date.distantPast
+                       let date2 = try? $1.resourceValues(forKeys: [.creationDateKey]).creationDate ?? Date.distantPast
+                       if let date1 = date1, let date2 = date2 {
+                               return date1 > date2
+                           } else {
+                               return false
+                           }
+                   }
+            print("Fetched audio files: \(self.audios)")
+//            self.audios.removeAll()
+//            
+//            for i in result {
+//                self.audios.append(i)
+//            }
         } catch {
-            print(error.localizedDescription)
+            print("Failed to fetch audio files")
         }
     }
     
@@ -71,7 +81,7 @@ class AudioRecorder: ObservableObject {
             }
             
             let docPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            let audioFileName = docPath.appendingPathComponent("\(self.audios.count + 1) Record.m4a")
+            let audioFileName = docPath.appendingPathComponent("\(UUID().uuidString)")
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -82,6 +92,7 @@ class AudioRecorder: ObservableObject {
             self.audioRecorder = try AVAudioRecorder(url: audioFileName, settings: settings)
             self.audioRecorder.record()
             self.recording = true
+            print("Recording started")
         } catch {
             print("Couldn't start recording: \(error.localizedDescription)")
         }
@@ -110,10 +121,18 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
         }
     }
     
+    var volume: Float = 10.0 {
+        didSet {
+            audioPlayer?.volume = volume
+            objectWillChange.send(self)
+        }
+    }
+    
     func startPlayback(audio: URL) {
         do {
             self.audioPlayer = try AVAudioPlayer(contentsOf: audio)
             self.audioPlayer.play()
+            self.audioPlayer.volume = volume
             self.isPlaying = true
             self.audioPlayer.delegate = self
         } catch {
